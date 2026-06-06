@@ -25,11 +25,16 @@
      ======================================================================== */
 
   /* ---- API-Adressen ---------------------------------------------------- *
-   * Die php-crud-api läuft im Docker-Compose auf Port 8081. Wir bauen die
-   * Basis-URL dynamisch aus der aktuellen Adresse zusammen: Egal ob die Seite
-   * über localhost oder eine IP geöffnet wird – die API liegt auf demselben
-   * Host, nur auf Port 8081.                                               */
-  const API_BASE      = `${location.protocol}//${location.hostname}:8081`;
+   * Die API-Adresse hängt davon ab, WO die Seite läuft:
+   *   - lokal (Docker):   php-crud-api auf Port 8081
+   *   - online (Plesk):   die Datei api.php im selben Webspace
+   * Das erkennen wir automatisch am hostname.                              */
+  const isLocal       = ['localhost', '127.0.0.1'].includes(location.hostname);
+  // online: 'api.php' liegt im selben Ordner wie diese Seite (relativ → auch
+  // in einem Unterordner korrekt). lokal: fester Docker-Port 8081.
+  const API_BASE      = isLocal
+    ? `${location.protocol}//${location.hostname}:8081`
+    : 'api.php';
   const VEREIN_URL    = `${API_BASE}/records/verein?size=200`;   // Vereine für das Dropdown
   const VERLOSUNG_URL = `${API_BASE}/records/verlosung`;          // Tabelle, in die wir speichern
 

@@ -17,10 +17,18 @@
   'use strict';
 
   /* -------- Konfiguration ------------------------------------------------ *
-   * php-crud-api läuft im Docker-Compose auf Port 8081.
+   * Die API-Adresse hängt davon ab, WO die Seite läuft:
+   *   - lokal (Docker):   php-crud-api auf Port 8081
+   *   - online (Plesk):   die Datei api.php im selben Webspace
+   * Das erkennen wir automatisch am hostname.
    * `?join=verein` hängt zu jedem Produkt das verknüpfte Vereins-Objekt an;
    * `&size=200` hebt das Standard-Limit an, damit wirklich alle Produkte kommen. */
-  const API_BASE = `${location.protocol}//${location.hostname}:8081`;
+  const isLocal  = ['localhost', '127.0.0.1'].includes(location.hostname);
+  // online: 'api.php' liegt im selben Ordner wie diese Seite (relativ → auch
+  // in einem Unterordner korrekt). lokal: fester Docker-Port 8081.
+  const API_BASE = isLocal
+    ? `${location.protocol}//${location.hostname}:8081`
+    : 'api.php';
   const API_URL  = `${API_BASE}/records/produkt?join=verein&size=200`;
 
   /* -------- DOM-Referenzen ---------------------------------------------- */
