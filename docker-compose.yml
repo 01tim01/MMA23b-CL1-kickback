@@ -1,0 +1,61 @@
+# ============================================================================
+# KICKBACK – Docker-Compose
+# Startet die komplette lokale Umgebung mit drei Containern:
+#   db   → MariaDB-Datenbank (wird beim ersten Start aus db/init.sql befüllt)
+#   api  → php-crud-api: macht aus den DB-Tabellen automatisch eine REST-API
+#   web  → Nginx-Webserver, der die statische Website (HTML/CSS/JS) ausliefert
+#
+# Start:   docker-compose up -d
+# Website: http://localhost:8080
+# API:     http://localhost:8081/records/produkt
+# ============================================================================
+services:
+  # -------- Datenbank (MariaDB) --------------------------------------------
+  db:
+    image: mariadb:11
+    container_name: kickback-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kickback          # diese DB wird automatisch angelegt
+      MYSQL_USER: kickback
+      MYSQL_PASSWORD: kickback
+    ports:
+      - "3307:3306"                     # 3307 aussen → 3306 im Container (Konflikte vermeiden)
+    volumes:
+      - dbdata:/var/lib/mysql           # speichert die Daten dauerhaft
+      # init.sql wird beim ERSTEN Start automatisch ausgeführt (Schema + Seeds):
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # -------- REST-API (php-crud-api) ----------------------------------------
+  # php-crud-api erzeugt aus jeder Tabelle automatisch REST-Endpunkte, z. B.
+  #   GET  /records/produkt?join=verein   (lesen mit Verknüpfung)
+  #   POST /records/verlosung             (neuen Datensatz speichern)
+  # Die DB-Zugangsdaten werden über PHP_CRUD_API_*-Variablen gesetzt.
+  api:
+    image: mevdschee/php-crud-api:latest
+    container_name: kickback-api
+    ports:
+      - "8081:80"
+    environment:
+      PHP_CRUD_API_DRIVER: mysql
+      PHP_CRUD_API_ADDRESS: db          # Hostname = Name des DB-Containers
+      PHP_CRUD_API_PORT: 3306
+      PHP_CRUD_API_DATABASE: kickback
+      PHP_CRUD_API_USERNAME: kickback
+      PHP_CRUD_API_PASSWORD: kickback
+    depends_on:
+      - db
+
+  # -------- Webserver (Nginx) ----------------------------------------------
+  web:
+    image: nginx:alpine
+    container_name: kickback-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/usr/share/nginx/html:ro     # aktuelles Verzeichnis = Webroot (read-only)
+    depends_on:
+      - api
+
+volumes:
+  dbdata:

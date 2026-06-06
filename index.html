@@ -1,15 +1,342 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kickback — Heart on your Sleeve</title>
+  <meta name="description" content="Kickback ist der Online-Shop für Trikot-Liebhaber:innen. Aktuelle Saison, Retro-Klassiker und Promotionen rund um den Fussball." />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="img/KickBack_Logo_transparent.svg" />
 </head>
 <body>
-    <h1>My awesome page</h1>
-    <script src="/assets/js/script.js"></script>
+<div class="shell">
+
+  <!-- =========================  HEADER  =========================== -->
+  <header class="header" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Kickback Startseite">
+        Kickback<span class="dot" aria-hidden="true"></span>
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="index.html"      aria-current="page">Home</a>
+        <a href="shop.html">Sortiment</a>
+        <a href="promotion.html">Promotion</a>
+      </nav>
+      <a href="promotion.html" class="btn btn-accent header-cta btn-arrow">Jetzt Mitmachen</a>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile drawer -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="index.html"><span>Home</span><span class="idx">01</span></a>
+    <a href="shop.html"><span>Sortiment</span><span class="idx">02</span></a>
+    <a href="promotion.html"><span>Promotion</span><span class="idx">03</span></a>
+  </nav>
+
+  <!-- ticker -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Versandkostenfrei ab CHF 80 <span class="star">✱</span></span>
+      <span>Retro-Klassiker neu auf Lager <span class="star">✱</span></span>
+      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
+      <span>Made for Fans <span class="star">✱</span></span>
+      <span>Versandkostenfrei ab CHF 80 <span class="star">✱</span></span>
+      <span>Retro-Klassiker neu auf Lager <span class="star">✱</span></span>
+      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
+      <span>Made for Fans <span class="star">✱</span></span>
+    </div>
+  </div>
+
+  <main>
+    <!-- =========================  HERO  =========================== -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="head-row">
+        <span class="star">✱</span>
+        <span class="eyebrow">Saison 24/25 — Kollektion No. 03</span>
+      </div>
+
+      <h1 id="hero-title" class="hero-headline">
+        <span class="row"><span class="h-mega">HEART</span></span>
+        <span class="row"><span class="h-mega outline">ON YOUR</span></span>
+        <span class="row"><span class="h-mega">SLEEVE.</span></span>
+      </h1>
+
+      <div class="hero-meta">
+        <div class="cta-row">
+          <a href="shop.html" class="btn btn-arrow">Sortiment ansehen</a>
+          <a href="promotion.html" class="btn btn-ghost btn-arrow">Verlosung</a>
+        </div>
+        <p class="lead desc">
+          Trikots erzählen Geschichten — von Final-Nächten, Pokal-Märchen und
+          Tribünen-Choreos. Bei Kickback findest du die Klassiker, die dein
+          Herz schneller schlagen lassen.
+        </p>
+      </div>
+
+      <!-- ===================  HERO SLIDER  ====================== -->
+      <div class="slider reveal" data-slider aria-roledescription="carousel">
+        <div class="slider-track">
+          <article class="slide" aria-roledescription="slide" aria-label="FC Barcelona 24/25">
+            <img src="img/barca.jpeg" alt="FC Barcelona Trikot" loading="lazy" />
+            <div class="slide-caption">
+              <h3>FC Barcelona<br>24/25</h3>
+              <span class="slide-tag">Top-Liga</span>
+            </div>
+          </article>
+          <article class="slide" aria-roledescription="slide" aria-label="Liverpool 24/25">
+            <img src="img/liverpool.jpeg" alt="FC Liverpool Trikot" loading="lazy" />
+            <div class="slide-caption">
+              <h3>Liverpool<br>FC</h3>
+              <span class="slide-tag">Premier</span>
+            </div>
+          </article>
+          <article class="slide" aria-roledescription="slide" aria-label="Bayern München 24/25">
+            <img src="img/bayern.jpeg" alt="Bayern München Trikot" loading="lazy" />
+            <div class="slide-caption">
+              <h3>Bayern<br>München</h3>
+              <span class="slide-tag">Bundesliga</span>
+            </div>
+          </article>
+          <article class="slide" aria-roledescription="slide" aria-label="Real Madrid 24/25">
+            <img src="img/real.jpeg" alt="Real Madrid Trikot" loading="lazy" />
+            <div class="slide-caption">
+              <h3>Real<br>Madrid</h3>
+              <span class="slide-tag">La Liga</span>
+            </div>
+          </article>
+          <article class="slide" aria-roledescription="slide" aria-label="PSG 24/25">
+            <img src="img/psg.jpeg" alt="Paris Saint-Germain Trikot" loading="lazy" />
+            <div class="slide-caption">
+              <h3>Paris<br>SG</h3>
+              <span class="slide-tag">Ligue 1</span>
+            </div>
+          </article>
+          <article class="slide" aria-roledescription="slide" aria-label="Dortmund 24/25">
+            <img src="img/dortmund.jpeg" alt="Borussia Dortmund Trikot" loading="lazy" />
+            <div class="slide-caption">
+              <h3>Borussia<br>Dortmund</h3>
+              <span class="slide-tag">Bundesliga</span>
+            </div>
+          </article>
+        </div>
+        <div class="slider-controls">
+          <button data-slider-prev aria-label="Vorheriges Trikot">←</button>
+          <button data-slider-next aria-label="Nächstes Trikot">→</button>
+          <div class="slider-progress" aria-hidden="true"></div>
+          <span class="eyebrow">Drag · Swipe · Click</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================  ABOUT  =========================== -->
+    <section class="container section" aria-labelledby="about-title">
+      <div class="head-row">
+        <span class="star">✱</span>
+        <span class="eyebrow">Über Kickback</span>
+        <span class="meta">No. 01</span>
+      </div>
+      <div class="manifesto reveal">
+        <h2 id="about-title">
+          Trikots <span style="color:var(--accent-deep)">sind</span><br>
+          mehr als <em style="font-style:normal;color:var(--accent-deep)">Stoff.</em>
+        </h2>
+        <p class="lead">
+          Wir kuratieren Trikots aus den grössten Ligen Europas und kramen
+          gleichzeitig die Schätze der 90er und 2000er aus dem Keller. Jedes
+          Stück mit der Geschichte, die du suchst.
+        </p>
+        <div class="cta-row">
+          <a href="shop.html" class="btn btn-arrow">Zum Sortiment</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================  SORTIMENT  =========================== -->
+    <section class="container section" aria-labelledby="sortiment-title">
+      <div class="head-row">
+        <span class="star">✱</span>
+        <span class="eyebrow" id="sortiment-title">Sortiment</span>
+        <span class="meta"><a href="shop.html">Alle ansehen →</a></span>
+      </div>
+
+      <div class="card-grid reveal">
+        <a class="card card-wide" href="shop.html?kat=Aktuelle%20Trikots">
+          <img src="img/real.jpeg" alt="Aktuelle Saison Trikots" loading="lazy" />
+          <div class="card-body">
+            <h3>Aktuelle Saison<br>24 / 25</h3>
+            <span class="card-cta" aria-hidden="true">→</span>
+          </div>
+        </a>
+        <a class="card" href="shop.html?kat=Retro%20Trikots">
+          <img src="img/dortmund.jpeg" alt="Retro Trikots" loading="lazy" />
+          <div class="card-body">
+            <h3>Retro<br>Klassiker</h3>
+            <span class="card-cta" aria-hidden="true">→</span>
+          </div>
+        </a>
+        <a class="card" href="shop.html?liga=Premier%20League">
+          <img src="img/liverpool.jpeg" alt="Premier League" loading="lazy" />
+          <div class="card-body">
+            <h3>Premier<br>League</h3>
+            <span class="card-cta" aria-hidden="true">→</span>
+          </div>
+        </a>
+        <a class="card" href="shop.html?liga=La%20Liga">
+          <img src="img/barca.jpeg" alt="La Liga" loading="lazy" />
+          <div class="card-body">
+            <h3>La Liga<br>Specials</h3>
+            <span class="card-cta" aria-hidden="true">→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- =========================  TIER LIST (dark) =========================== -->
+    <section class="container">
+      <div class="section-dark">
+        <div class="container">
+          <div class="head-row">
+            <span class="star" style="color:var(--accent)">✱</span>
+            <span class="eyebrow" style="color:var(--accent)">Mitglieder-Programm</span>
+            <span class="meta" style="color:var(--accent)">No. 02</span>
+          </div>
+
+          <h2 class="h-xl" style="color:var(--bg);max-width:14ch">
+            DEIN<br>CLUB,<br>DEIN VORTEIL.
+          </h2>
+          <p class="lead" style="margin-top:1.25rem;max-width:48ch">
+            Werde Teil der Kickback-Crew und sichere dir Vorabzugriff,
+            exklusive Drops und ein gratis Retro-Trikot zum Geburtstag.
+          </p>
+
+          <ul class="tier-list reveal">
+            <li class="tier-item">
+              <span class="num">01</span>
+              <h3>Basic</h3>
+              <span class="price">CHF 0 / Jahr</span>
+              <span class="star">✱</span>
+            </li>
+            <li class="tier-item">
+              <span class="num">02</span>
+              <h3>Premium</h3>
+              <span class="price">CHF 49 / Jahr</span>
+              <span class="star">✱ ✱</span>
+            </li>
+            <li class="tier-item">
+              <span class="num">03</span>
+              <h3>Elite</h3>
+              <span class="price">CHF 129 / Jahr</span>
+              <span class="star">✱ ✱ ✱</span>
+            </li>
+          </ul>
+
+          <div class="cta-row" style="margin-top:2rem">
+            <a href="promotion.html" class="btn btn-arrow">Jetzt registrieren</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================  PROMOTION TEASER  =========================== -->
+    <section class="container section">
+      <div class="head-row">
+        <span class="star">✱</span>
+        <span class="eyebrow">Aktuelle Promotion</span>
+        <span class="meta">No. 03</span>
+      </div>
+      <div class="manifesto reveal">
+        <h2>
+          Gewinne <span style="color:var(--accent-deep)">dein</span><br>
+          Lieblings-Trikot.
+        </h2>
+        <p class="lead">
+          Trag dich in die Verlosung ein, schiess ein paar Tore in unserem
+          Mini-Game und sichere dir die Chance auf dein Wunschtrikot.
+        </p>
+        <div class="cta-row">
+          <a href="promotion.html" class="btn btn-accent btn-arrow">Mitmachen</a>
+          <a href="promotion.html#game" class="btn btn-ghost btn-arrow">Striker Run spielen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================  FOOTER  =========================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h2 class="h-xl">KICK<span class="accent">BACK</span><span class="accent">.</span></h2>
+          <p>Trikots, die Geschichten erzählen — kuratiert in Bern, ausgeliefert in alle Welt.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <ul>
+              <li><a href="shop.html?kat=Aktuelle%20Trikots">Aktuelle Saison</a></li>
+              <li><a href="shop.html?kat=Retro%20Trikots">Retro</a></li>
+              <li><a href="shop.html?liga=Premier%20League">Premier League</a></li>
+              <li><a href="shop.html?liga=Bundesliga">Bundesliga</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Mitmachen</h4>
+            <ul>
+              <li><a href="promotion.html">Verlosung</a></li>
+              <li><a href="promotion.html#game">Striker Run</a></li>
+              <li><a href="promotion.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>About</h4>
+            <ul>
+              <li><a href="#impressum">Impressum</a></li>
+              <li><a href="#datenschutz">Datenschutz</a></li>
+              <li><a href="mailto:hello@kickback.ch">hello@kickback.ch</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impressum / About (Pflicht-Inhalt laut Anforderungen) -->
+      <div class="footer-legal">
+        <div id="impressum">
+          <h4>Impressum</h4>
+          <p>
+            Kickback GmbH · Stadionweg 24 · 3011 Bern, Schweiz<br>
+            <a href="mailto:hello@kickback.ch">hello@kickback.ch</a> · +41 31 123 45 67<br>
+            Handelsregister CHE-123.456.789 · MwSt-Nr. CHE-123.456.789 MWST<br>
+            Geschäftsführung: M. Beispiel · Bildrechte: Demo-Material (Schulprojekt M291)
+          </p>
+        </div>
+        <div id="datenschutz">
+          <h4>Über uns &amp; Datenschutz</h4>
+          <p>
+            Kickback ist ein fiktiver Online-Shop für Fussballtrikots, entstanden im
+            Modul M291. Eingegebene Formulardaten (Verlosung) dienen ausschliesslich
+            der Demonstration der Datenbank-Anbindung und werden nicht
+            weitergegeben. Es werden keine Tracking-Cookies gesetzt.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-base">
+        <span>© <span data-year>2026</span> Kickback GmbH</span>
+        <span>Made in Bern, Switzerland</span>
+        <span>v 2.0 · M291</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/main.js" defer></script>
 </body>
 </html>

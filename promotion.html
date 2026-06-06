@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promotion — Kickback</title>
+  <meta name="description" content="Trag dich in die Trikot-Verlosung ein und spiele unseren Striker Run." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="img/KickBack_Logo_transparent.svg" />
+</head>
+<body>
+<div class="shell">
+
+  <header class="header" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Kickback Startseite">
+        Kickback<span class="dot" aria-hidden="true"></span>
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Sortiment</a>
+        <a href="promotion.html" aria-current="page">Promotion</a>
+      </nav>
+      <a href="#form" class="btn btn-accent header-cta btn-arrow">Jetzt Mitmachen</a>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="index.html"><span>Home</span><span class="idx">01</span></a>
+    <a href="shop.html"><span>Sortiment</span><span class="idx">02</span></a>
+    <a href="promotion.html"><span>Promotion</span><span class="idx">03</span></a>
+  </nav>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
+      <span>Mit Striker Run zusätzliche Lose <span class="star">✱</span></span>
+      <span>Teilnahme bis 31.07. <span class="star">✱</span></span>
+      <span>Made for Fans <span class="star">✱</span></span>
+      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
+      <span>Mit Striker Run zusätzliche Lose <span class="star">✱</span></span>
+      <span>Teilnahme bis 31.07. <span class="star">✱</span></span>
+      <span>Made for Fans <span class="star">✱</span></span>
+    </div>
+  </div>
+
+  <main>
+    <!-- =========================  PAGE HERO  =========================== -->
+    <section class="container page-hero">
+      <div class="head-row">
+        <span class="star">✱</span>
+        <span class="eyebrow">Promotion · Kollektion 24/25</span>
+        <span class="meta">No. 03 / 03</span>
+      </div>
+      <h1>
+        DEIN<br>
+        <span style="color:var(--accent-deep)">TRIKOT</span><br>
+        <span style="-webkit-text-stroke:2px var(--ink);color:transparent">FÜR LAU.</span>
+      </h1>
+      <div class="subline">
+        <p class="lead" style="max-width:50ch">
+          Trag dich ein, schiess ein paar Tore — und sicher dir die Chance,
+          dein Lieblingstrikot kostenlos nach Hause zu bekommen. Pro Tor im
+          Striker Run ein zusätzliches Los.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================  FORM + GAME  =========================== -->
+    <section class="container" id="form">
+      <div class="promo-grid reveal">
+        <!-- ============= FORM ============= -->
+        <div class="promo-card">
+          <span class="eyebrow"><span class="dot"></span>Formular · DB-Anbindung</span>
+          <h2>An der<br>Verlosung<br>teilnehmen.</h2>
+          <p>
+            Wir verlosen jede Woche ein Trikot deiner Wahl. Drei Felder genügen
+            — und mit jedem Goal aus dem Striker Run ein zusätzliches Los.
+          </p>
+
+          <form id="verlosung-form" class="form" novalidate>
+            <div class="form-row two">
+              <div class="field" data-field="name">
+                <label for="f-name">Name *</label>
+                <input id="f-name" name="name" type="text" placeholder="Vor- & Nachname" required />
+                <span class="error">Bitte Namen eingeben (mind. 2 Zeichen).</span>
+              </div>
+              <div class="field" data-field="email">
+                <label for="f-email">E-Mail *</label>
+                <input id="f-email" name="email" type="email" placeholder="dein@email.com" required />
+                <span class="error">Bitte gültige E-Mail eingeben.</span>
+              </div>
+            </div>
+
+            <div class="form-row two">
+              <div class="field" data-field="lieblingsverein">
+                <label for="f-club">Lieblingsverein *</label>
+                <select id="f-club" name="lieblingsverein" required>
+                  <option value="">Wählen...</option>
+                </select>
+                <span class="error">Verein auswählen.</span>
+              </div>
+              <div class="field" data-field="groesse">
+                <label for="f-size">Trikotgrösse *</label>
+                <select id="f-size" name="groesse" required>
+                  <option value="">Wählen...</option>
+                  <option>S</option><option>M</option><option>L</option>
+                  <option>XL</option><option>XXL</option>
+                </select>
+                <span class="error">Grösse auswählen.</span>
+              </div>
+            </div>
+
+            <label class="checkbox">
+              <input type="checkbox" id="f-news" name="newsletter">
+              <span>Ja, ich möchte Drops & Promotions per Newsletter erhalten.</span>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-accent btn-arrow">Teilnehmen</button>
+              <span id="form-status" class="form-status" role="status"></span>
+            </div>
+            <input type="hidden" id="f-score" name="spielstand" value="0" />
+          </form>
+        </div>
+
+        <!-- ============= GAME ============= -->
+        <div class="game-card" id="game">
+          <div class="game-head">
+            <div>
+              <span class="eyebrow"><span class="dot"></span>Mini-Game · Striker Run</span>
+              <h2 style="margin-top:.5rem">Striker<br>Run.</h2>
+            </div>
+            <div class="game-stats">
+              <div class="stat"><span class="v" id="game-score">0</span><span class="l">Goals</span></div>
+              <div class="stat"><span class="v" id="game-best">0</span><span class="l">Best</span></div>
+            </div>
+          </div>
+
+          <div class="game-canvas-wrap">
+            <canvas id="game-canvas" width="800" height="450" tabindex="0" aria-label="Striker Run – Geschicklichkeitsspiel"></canvas>
+            <div class="game-overlay" id="game-overlay">
+              <div>
+                <span class="eyebrow"><span class="dot"></span>Bereit?</span>
+                <h3 style="margin-top:.5rem">SPRING. WEICH AUS. SCORE.</h3>
+                <p>
+                  <span class="key">Space</span> oder <span class="key">↑</span> oder Tap zum Springen.<br>
+                  Weich Cones aus, sammle Bälle für Goals.
+                </p>
+                <button class="btn btn-accent" id="game-start">Anpfiff</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-help">
+            <span>↑ / Space / Tap = Jump</span>
+            <span>✱ Ball sammeln = +1 Goal</span>
+            <span>✱ Cone berühren = Game Over</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================  FAQ ACCORDION  =========================== -->
+    <section class="container section" id="faq">
+      <div class="head-row">
+        <span class="star">✱</span>
+        <span class="eyebrow">FAQ · Häufige Fragen</span>
+        <span class="meta">No. 04</span>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>Wie funktioniert die Verlosung?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-a"><div><p>
+            Du trägst dich mit Name, E-Mail, Lieblingsverein und Trikotgrösse
+            ein. Jede Woche ziehen wir aus allen Teilnehmer:innen eine Person.
+            Mit jedem Goal im Striker Run sicherst du dir ein zusätzliches Los.
+          </p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>Was passiert mit meinen Daten?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-a"><div><p>
+            Deine Daten werden ausschliesslich für die Durchführung der
+            Verlosung verwendet. Wenn du den Newsletter aktiviert hast,
+            verschicken wir bis zu 2 Mails pro Monat — abmelden geht jederzeit.
+          </p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>Wie wird der Gewinner benachrichtigt?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-a"><div><p>
+            Wir melden uns per E-Mail bei der angegebenen Adresse. Antwortest
+            du innerhalb von 7 Tagen, schicken wir das Trikot deiner Wahl
+            kostenlos zu dir nach Hause.
+          </p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>Kann ich mehrfach mitmachen?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-a"><div><p>
+            Pro E-Mail-Adresse gilt ein Eintrag — aber spielen kannst du so
+            oft du willst. Dein bestes Striker-Run-Ergebnis zählt für die
+            Anzahl Lose.
+          </p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>Ich finde meinen Verein nicht in der Liste.</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-a"><div><p>
+            Aktuell verlosen wir nur Trikots aus den Top-5-Ligen + Schweizer
+            Super League. Schreib uns an <a href="mailto:hello@kickback.ch">hello@kickback.ch</a>,
+            wenn dein Verein fehlt — wir bauen das Sortiment laufend aus.
+          </p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================  DARK CTA  =========================== -->
+    <section class="container section">
+      <div class="section-dark">
+        <div class="container">
+          <div class="head-row">
+            <span class="star" style="color:var(--accent)">✱</span>
+            <span class="eyebrow" style="color:var(--accent)">Kein Bock auf Glück?</span>
+          </div>
+          <h2 class="h-xl" style="color:var(--bg);max-width:14ch">
+            DANN<br>EINFACH<br><span style="color:var(--accent)">SHOPPEN.</span>
+          </h2>
+          <p class="lead" style="margin-top:1rem;max-width:48ch">
+            Im Sortiment findest du alle Trikots der aktuellen Saison plus
+            ausgewählte Retro-Klassiker.
+          </p>
+          <div class="cta-row" style="margin-top:1.5rem">
+            <a href="shop.html" class="btn btn-arrow">Zum Sortiment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h2 class="h-xl">KICK<span class="accent">BACK</span><span class="accent">.</span></h2>
+          <p>Trikots, die Geschichten erzählen — kuratiert in Bern, ausgeliefert in alle Welt.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <ul>
+              <li><a href="shop.html?kat=Aktuelle%20Trikots">Aktuelle Saison</a></li>
+              <li><a href="shop.html?kat=Retro%20Trikots">Retro</a></li>
+              <li><a href="shop.html?liga=Premier%20League">Premier League</a></li>
+              <li><a href="shop.html?liga=Bundesliga">Bundesliga</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Mitmachen</h4>
+            <ul>
+              <li><a href="promotion.html">Verlosung</a></li>
+              <li><a href="promotion.html#game">Striker Run</a></li>
+              <li><a href="promotion.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>About</h4>
+            <ul>
+              <li><a href="#impressum">Impressum</a></li>
+              <li><a href="#datenschutz">Datenschutz</a></li>
+              <li><a href="mailto:hello@kickback.ch">hello@kickback.ch</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impressum / About (Pflicht-Inhalt laut Anforderungen) -->
+      <div class="footer-legal">
+        <div id="impressum">
+          <h4>Impressum</h4>
+          <p>
+            Kickback GmbH · Stadionweg 24 · 3011 Bern, Schweiz<br>
+            <a href="mailto:hello@kickback.ch">hello@kickback.ch</a> · +41 31 123 45 67<br>
+            Handelsregister CHE-123.456.789 · MwSt-Nr. CHE-123.456.789 MWST<br>
+            Geschäftsführung: M. Beispiel · Bildrechte: Demo-Material (Schulprojekt M291)
+          </p>
+        </div>
+        <div id="datenschutz">
+          <h4>Über uns &amp; Datenschutz</h4>
+          <p>
+            Kickback ist ein fiktiver Online-Shop für Fussballtrikots, entstanden im
+            Modul M291. Eingegebene Formulardaten (Verlosung) dienen ausschliesslich
+            der Demonstration der Datenbank-Anbindung und werden nicht
+            weitergegeben. Es werden keine Tracking-Cookies gesetzt.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-base">
+        <span>© <span data-year>2026</span> Kickback GmbH</span>
+        <span>Made in Bern, Switzerland</span>
+        <span>v 2.0 · M291</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/main.js" defer></script>
+<script src="js/promotion.js" defer></script>
+</body>
+</html>

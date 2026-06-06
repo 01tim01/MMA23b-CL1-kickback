@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wireframe Notation — Kickback</title>
+  <link rel="stylesheet" href="wireframes.css" />
+  <style>
+    body { padding: 30px; }
+    h1 { font-family: "Arial Black"; font-size: 36px; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 8px; }
+    h2 { font-family: "Arial Black"; font-size: 18px; text-transform: uppercase; margin-top: 30px; }
+    .legend { display: grid; grid-template-columns: 180px 1fr; gap: 14px 24px; margin-top: 14px; max-width: 800px; align-items: center; }
+    .legend > div:nth-child(odd) { font-family: "Courier New"; font-size: 11px; text-transform: uppercase; letter-spacing: .15em; align-self: start; padding-top: 6px; }
+    .legend > div:nth-child(even) { padding: 8px 0; }
+    .swatch { display: inline-block; padding: 4px 10px; }
+  </style>
+</head>
+<body>
+
+<h1>Wireframe-Notation</h1>
+<p style="font-family:'Courier New';font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--soft)">
+  Kickback · M291 · Projektaufgabe 2 · Abgabe Wireframes
+</p>
+
+<h2>Building Blocks</h2>
+<div class="legend">
+
+  <div>Text</div>
+  <div>
+    <div class="text-line"></div>
+    <div class="text-line medium"></div>
+    <div class="text-line short"></div>
+    <span style="font-size:10px;color:var(--soft)">Schwarze Balken stehen für Fliesstext-Platzhalter</span>
+  </div>
+
+  <div>Header / Heading</div>
+  <div>
+    <span style="font-family:'Arial Black';font-size:32px;text-transform:uppercase;letter-spacing:-.01em">HEADING</span>
+    <span style="font-family:'Arial Black';font-size:32px;text-transform:uppercase;-webkit-text-stroke:1.5px black;color:transparent;margin-left:8px">OUTLINE</span>
+    <div style="font-size:10px;color:var(--soft);margin-top:4px">Bold Display-Schrift, optional outline für Akzent</div>
+  </div>
+
+  <div>Bild</div>
+  <div>
+    <div style="width:120px;height:90px;border:1.2px solid var(--line);display:inline-block">
+      <svg viewBox="0 0 120 90" style="width:100%;height:100%"><line x1="0" y1="0" x2="120" y2="90" stroke="black"/><line x1="120" y1="0" x2="0" y2="90" stroke="black"/></svg>
+    </div>
+    <span style="margin-left:12px;font-size:10px;color:var(--soft)">Rechteck mit Diagonalkreuz steht für Bild/Foto</span>
+  </div>
+
+  <div>Button</div>
+  <div>
+    <span class="btn-wf">Sekundär</span>
+    <span class="btn-wf primary">Primär →</span>
+    <div style="font-size:10px;color:var(--soft);margin-top:4px">Outline = sekundär · Filled = primär · → = Pfeil-Button</div>
+  </div>
+
+  <div>Tag / Badge</div>
+  <div>
+    <span class="tag">SAISON 24/25</span>
+    <span class="tag" style="background:var(--line);color:var(--bg);border-color:var(--line);margin-left:6px">RETRO</span>
+  </div>
+
+  <div>Text Input</div>
+  <div>
+    <div class="wf-input" style="width:280px">Suchen — Verein, Saison, Marke …</div>
+  </div>
+
+  <div>Dropdown</div>
+  <div>
+    <div class="wf-input" style="width:200px">▼  Alle Ligen</div>
+  </div>
+
+  <div>Checkbox</div>
+  <div>
+    <div class="wf-checkbox">Newsletter abonnieren</div>
+  </div>
+
+  <div>Navigation</div>
+  <div>
+    <nav style="display:flex;gap:24px;padding:8px;border:1.2px solid var(--line);width:fit-content">
+      <a href="#" class="active" style="text-decoration:none;color:black;border-bottom:1px solid black;font-size:11px;text-transform:uppercase;letter-spacing:.12em">Home</a>
+      <a href="#" style="text-decoration:none;color:black;font-size:11px;text-transform:uppercase;letter-spacing:.12em">Sortiment</a>
+      <a href="#" style="text-decoration:none;color:black;font-size:11px;text-transform:uppercase;letter-spacing:.12em">Promotion</a>
+    </nav>
+    <div style="font-size:10px;color:var(--soft);margin-top:4px">Aktive Seite mit Unterstrich · Mobile: Burger-Icon</div>
+  </div>
+
+  <div>Burger Menu</div>
+  <div>
+    <div class="wf-burger" style="display:grid"></div>
+  </div>
+
+  <div>Link</div>
+  <div>
+    <a href="#" style="text-decoration:underline">Beispiel-Link</a>
+  </div>
+
+  <div>Slider / Karussell</div>
+  <div>
+    <div style="display:flex;gap:6px;width:340px">
+      <div style="flex:0 0 60%;aspect-ratio:4/5;border:1.2px solid var(--line)"></div>
+      <div style="flex:0 0 40%;aspect-ratio:4/5;border:1.2px solid var(--line)"></div>
+    </div>
+    <div style="font-size:10px;color:var(--soft);margin-top:4px">Erstes Slide voll sichtbar, weitere angeschnitten · ←/→ Controls</div>
+  </div>
+
+  <div>Accordion (FAQ)</div>
+  <div>
+    <div style="border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line);padding:8px 0;display:flex;justify-content:space-between;font-family:'Arial Black';text-transform:uppercase;font-size:14px">
+      <span>Frage?</span><span class="plus" style="width:22px;height:22px;border:1.2px solid var(--line);border-radius:50%;text-align:center;line-height:20px;font-family:Arial">+</span>
+    </div>
+  </div>
+
+  <div>Card</div>
+  <div>
+    <div style="width:200px;height:150px;border:1.2px solid var(--line);position:relative;display:flex;align-items:end;padding:8px">
+      <svg viewBox="0 0 100 75" style="position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px)"><line x1="0" y1="0" x2="100" y2="75" stroke="black"/><line x1="100" y1="0" x2="0" y2="75" stroke="black"/></svg>
+      <span class="label" style="position:relative;z-index:2;background:white;border:1px solid black;padding:4px 8px;font-size:11px;text-transform:uppercase">Card-Titel</span>
+    </div>
+  </div>
+
+  <div>Game / Canvas</div>
+  <div>
+    <div style="width:300px;aspect-ratio:16/9;border:1.5px solid var(--line);display:grid;place-items:center;background:linear-gradient(180deg,transparent 0%,transparent 78%,#DDD 78%,#DDD 100%)">
+      <span style="font-family:'Courier New';font-size:10px;letter-spacing:.15em">[CANVAS GAME]</span>
+    </div>
+  </div>
+</div>
+
+<h2>Verwendete Software</h2>
+<div style="max-width:800px;line-height:1.6">
+  <p>Die Wireframes wurden direkt mit <strong>HTML & CSS</strong> in
+    Visual Studio Code erstellt – ohne Adobe XD oder externe Tools. Vorteile:</p>
+  <ul style="margin:8px 0 16px 20px">
+    <li>1:1-Übereinstimmung mit der späteren Implementierung (gleiche Breakpoints)</li>
+    <li>Versionierbar via Git</li>
+    <li>Direkt im Browser auf verschiedenen Auflösungen prüfbar</li>
+  </ul>
+  <p>Die Screenshots für die Word-Abgabe wurden im Browser bei
+    <strong>1200&nbsp;px</strong> (Desktop) bzw. <strong>380&nbsp;px</strong>
+    (Mobile) erzeugt.</p>
+</div>
+
+</body>
+</html>

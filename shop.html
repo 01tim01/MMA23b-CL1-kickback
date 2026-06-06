@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sortiment — Kickback</title>
+  <meta name="description" content="Aktuelle Saison-Trikots und Retro-Klassiker — durchsuchbar nach Liga, Saison und Verein." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="img/KickBack_Logo_transparent.svg" />
+</head>
+<body>
+<div class="shell">
+
+  <header class="header" role="banner">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Kickback Startseite">
+        Kickback<span class="dot" aria-hidden="true"></span>
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="index.html">Home</a>
+        <a href="shop.html" aria-current="page">Sortiment</a>
+        <a href="promotion.html">Promotion</a>
+      </nav>
+      <a href="promotion.html" class="btn btn-accent header-cta btn-arrow">Jetzt Mitmachen</a>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="index.html"><span>Home</span><span class="idx">01</span></a>
+    <a href="shop.html"><span>Sortiment</span><span class="idx">02</span></a>
+    <a href="promotion.html"><span>Promotion</span><span class="idx">03</span></a>
+  </nav>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Versandkostenfrei ab CHF 80 <span class="star">✱</span></span>
+      <span>Retro-Klassiker neu auf Lager <span class="star">✱</span></span>
+      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
+      <span>Made for Fans <span class="star">✱</span></span>
+      <span>Versandkostenfrei ab CHF 80 <span class="star">✱</span></span>
+      <span>Retro-Klassiker neu auf Lager <span class="star">✱</span></span>
+      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
+      <span>Made for Fans <span class="star">✱</span></span>
+    </div>
+  </div>
+
+  <main>
+    <!-- =========================  PAGE HERO  =========================== -->
+    <section class="container page-hero">
+      <div class="head-row">
+        <span class="star">✱</span>
+        <span class="eyebrow">Sortiment · 26 Produkte</span>
+        <span class="meta">No. 02 / 03</span>
+      </div>
+      <h1>
+        ALLE<br>
+        <span style="color:var(--accent-deep)">TRIKOTS</span><br>
+        <span style="-webkit-text-stroke:2px var(--ink);color:transparent">AUF EINEN BLICK.</span>
+      </h1>
+      <div class="subline">
+        <p class="lead" style="max-width:42ch">
+          Filter nach Liga, Saison oder Kategorie — finde dein nächstes
+          Lieblingsstück.
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================  CONTROLS  =========================== -->
+    <section class="container" aria-labelledby="filter-title">
+      <h2 id="filter-title" class="visually-hidden" style="position:absolute;left:-9999px">Filter</h2>
+      <div class="shop-controls">
+        <input id="search" class="input" type="search" placeholder="Suchen — Verein, Saison, Marke …" aria-label="Suchen" />
+        <select id="filterLiga" class="select" aria-label="Liga"><option value="">Alle Ligen</option></select>
+        <select id="filterSaison" class="select" aria-label="Saison"><option value="">Alle Saisons</option></select>
+        <select id="filterKategorie" class="select" aria-label="Kategorie"><option value="">Alle Kategorien</option></select>
+        <button id="reset" class="btn btn-ghost">Reset</button>
+      </div>
+
+      <div class="shop-meta">
+        <span id="count" class="count">…</span>
+        <span class="muted" id="active-filters"></span>
+      </div>
+
+      <div id="product-grid" class="product-grid reveal" aria-live="polite">
+        <!-- gerendert per JS -->
+      </div>
+    </section>
+
+    <!-- =========================  TEASER (dark)  =========================== -->
+    <section class="container section">
+      <div class="section-dark">
+        <div class="container">
+          <div class="head-row">
+            <span class="star" style="color:var(--accent)">✱</span>
+            <span class="eyebrow" style="color:var(--accent)">Verlosung 24 / 25</span>
+          </div>
+          <h2 class="h-xl" style="color:var(--bg);max-width:18ch">
+            DU HAST DEIN TRIKOT GEFUNDEN — UND<br>
+            JETZT <span style="color:var(--accent)">GRATIS</span> EINS DAZU?
+          </h2>
+          <p class="lead" style="max-width:48ch;margin-top:1rem">
+            Trag dich in die Verlosung ein und schiess ein paar Tore im Striker
+            Run. Mit jedem Goal steigt deine Gewinnchance.
+          </p>
+          <div class="cta-row" style="margin-top:1.5rem">
+            <a href="promotion.html" class="btn btn-arrow">Jetzt mitmachen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h2 class="h-xl">KICK<span class="accent">BACK</span><span class="accent">.</span></h2>
+          <p>Trikots, die Geschichten erzählen — kuratiert in Bern, ausgeliefert in alle Welt.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Shop</h4>
+            <ul>
+              <li><a href="shop.html?kat=Aktuelle%20Trikots">Aktuelle Saison</a></li>
+              <li><a href="shop.html?kat=Retro%20Trikots">Retro</a></li>
+              <li><a href="shop.html?liga=Premier%20League">Premier League</a></li>
+              <li><a href="shop.html?liga=Bundesliga">Bundesliga</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Mitmachen</h4>
+            <ul>
+              <li><a href="promotion.html">Verlosung</a></li>
+              <li><a href="promotion.html#game">Striker Run</a></li>
+              <li><a href="promotion.html#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>About</h4>
+            <ul>
+              <li><a href="#impressum">Impressum</a></li>
+              <li><a href="#datenschutz">Datenschutz</a></li>
+              <li><a href="mailto:hello@kickback.ch">hello@kickback.ch</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impressum / About (Pflicht-Inhalt laut Anforderungen) -->
+      <div class="footer-legal">
+        <div id="impressum">
+          <h4>Impressum</h4>
+          <p>
+            Kickback GmbH · Stadionweg 24 · 3011 Bern, Schweiz<br>
+            <a href="mailto:hello@kickback.ch">hello@kickback.ch</a> · +41 31 123 45 67<br>
+            Handelsregister CHE-123.456.789 · MwSt-Nr. CHE-123.456.789 MWST<br>
+            Geschäftsführung: M. Beispiel · Bildrechte: Demo-Material (Schulprojekt M291)
+          </p>
+        </div>
+        <div id="datenschutz">
+          <h4>Über uns &amp; Datenschutz</h4>
+          <p>
+            Kickback ist ein fiktiver Online-Shop für Fussballtrikots, entstanden im
+            Modul M291. Eingegebene Formulardaten (Verlosung) dienen ausschliesslich
+            der Demonstration der Datenbank-Anbindung und werden nicht
+            weitergegeben. Es werden keine Tracking-Cookies gesetzt.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-base">
+        <span>© <span data-year>2026</span> Kickback GmbH</span>
+        <span>Made in Bern, Switzerland</span>
+        <span>v 2.0 · M291</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/main.js" defer></script>
+<script src="js/shop.js" defer></script>
+</body>
+</html>

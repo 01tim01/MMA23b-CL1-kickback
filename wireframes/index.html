@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kickback — Low-Fidelity Wireframes</title>
+  <link rel="stylesheet" href="wireframes.css" />
+</head>
+<body>
+
+<div class="wf-meta">
+  <span>Kickback · M291 · Projektaufgabe 2</span>
+  <span>Low-Fidelity Wireframes · 3 Pages × Mobile/Desktop = 6</span>
+  <span>Notation: ./notation.html</span>
+</div>
+
+<!-- ====================================================================
+     1) HOME — DESKTOP (1200px)
+     ==================================================================== -->
+<section class="wf-frame desktop">
+  <span class="label">01 / Home / Desktop · 1200px</span>
+
+  <div class="wf-header">
+    <div class="wf-logo">Kickback ●</div>
+    <nav class="wf-nav wf-desktop-only">
+      <a href="#" class="active">Home</a>
+      <a href="#">Sortiment</a>
+      <a href="#">Promotion</a>
+    </nav>
+    <div class="wf-cta wf-desktop-only">
+      <span class="btn-wf primary">Jetzt Mitmachen →</span>
+    </div>
+    <div class="wf-burger wf-mobile-only"></div>
+  </div>
+
+  <div class="wf-section solid" style="background: var(--line); color: var(--bg); padding: 8px 20px;">
+    <div style="font-family: 'Courier New'; font-size: 11px; letter-spacing: .15em;">
+      &#10033; Versandkostenfrei ab CHF 80 &nbsp;&nbsp; &#10033; Retro-Klassiker neu auf Lager &nbsp;&nbsp; &#10033; Trikot-Verlosung 24/25
+    </div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title">
+      <span>Saison 24/25 — Kollektion No. 03</span>
+      <span class="meta">No. 01</span>
+    </div>
+    <h1 class="wf-hero-title">HEART</h1>
+    <h1 class="wf-hero-title outline">ON YOUR</h1>
+    <h1 class="wf-hero-title">SLEEVE.</h1>
+    <div style="display:flex; gap: 10px; margin-top: 14px; align-items: center;">
+      <span class="btn-wf primary">Sortiment ansehen →</span>
+      <span class="btn-wf">Verlosung →</span>
+      <div style="margin-left: auto; max-width: 360px;">
+        <div class="text-line"></div>
+        <div class="text-line medium"></div>
+        <div class="text-line short"></div>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div style="margin-top: 24px;">
+      <div class="wf-slider">
+        <div class="wf-slide"><svg class="cross-svg" viewBox="0 0 100 125"><line x1="0" y1="0" x2="100" y2="125" stroke="black"/><line x1="100" y1="0" x2="0" y2="125" stroke="black"/></svg></div>
+        <div class="wf-slide"><svg class="cross-svg" viewBox="0 0 100 125"><line x1="0" y1="0" x2="100" y2="125" stroke="black"/><line x1="100" y1="0" x2="0" y2="125" stroke="black"/></svg></div>
+        <div class="wf-slide"><svg class="cross-svg" viewBox="0 0 100 125"><line x1="0" y1="0" x2="100" y2="125" stroke="black"/><line x1="100" y1="0" x2="0" y2="125" stroke="black"/></svg></div>
+      </div>
+      <div class="wf-controls">
+        <div class="arrow">←</div>
+        <div class="arrow">→</div>
+        <div class="wf-progress"></div>
+        <span style="font-family:'Courier New';font-size:10px;letter-spacing:.15em">DRAG · SWIPE · CLICK</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>Sortiment</span><span class="meta">Alle ansehen →</span></div>
+    <div class="wf-grid-4">
+      <div class="wf-card"><svg class="cross-svg" viewBox="0 0 100 75"><line x1="0" y1="0" x2="100" y2="75" stroke="black"/><line x1="100" y1="0" x2="0" y2="75" stroke="black"/></svg><span class="label">Aktuelle Saison</span></div>
+      <div class="wf-card"><svg class="cross-svg" viewBox="0 0 100 75"><line x1="0" y1="0" x2="100" y2="75" stroke="black"/><line x1="100" y1="0" x2="0" y2="75" stroke="black"/></svg><span class="label">Retro</span></div>
+      <div class="wf-card"><svg class="cross-svg" viewBox="0 0 100 75"><line x1="0" y1="0" x2="100" y2="75" stroke="black"/><line x1="100" y1="0" x2="0" y2="75" stroke="black"/></svg><span class="label">Premier League</span></div>
+      <div class="wf-card"><svg class="cross-svg" viewBox="0 0 100 75"><line x1="0" y1="0" x2="100" y2="75" stroke="black"/><line x1="100" y1="0" x2="0" y2="75" stroke="black"/></svg><span class="label">La Liga</span></div>
+    </div>
+  </div>
+
+  <div class="wf-section" style="background: #F4F4F4">
+    <div class="wf-section-title"><span>Mitglieder-Programm</span><span class="meta">No. 02</span></div>
+    <h2 style="font-family: 'Arial Black'; font-size: 40px; line-height: 1; text-transform: uppercase; margin-bottom: 8px;">DEIN CLUB,<br>DEIN VORTEIL.</h2>
+    <div class="text-line short"></div>
+    <div style="margin-top: 16px;">
+      <div style="border-top: 1.5px solid var(--line); padding: 14px 0; display: flex; gap: 16px; align-items: baseline;"><span style="font-family:'Courier New';font-size:11px">01</span><strong style="font-family:'Arial Black';font-size:24px;text-transform:uppercase">BASIC</strong><span style="margin-left:auto;font-family:'Courier New';font-size:13px">CHF 0 / Jahr</span><span>✱</span></div>
+      <div style="border-top: 1.5px solid var(--line); padding: 14px 0; display: flex; gap: 16px; align-items: baseline;"><span style="font-family:'Courier New';font-size:11px">02</span><strong style="font-family:'Arial Black';font-size:24px;text-transform:uppercase">PREMIUM</strong><span style="margin-left:auto;font-family:'Courier New';font-size:13px">CHF 49 / Jahr</span><span>✱✱</span></div>
+      <div style="border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); padding: 14px 0; display: flex; gap: 16px; align-items: baseline;"><span style="font-family:'Courier New';font-size:11px">03</span><strong style="font-family:'Arial Black';font-size:24px;text-transform:uppercase">ELITE</strong><span style="margin-left:auto;font-family:'Courier New';font-size:13px">CHF 129 / Jahr</span><span>✱✱✱</span></div>
+    </div>
+    <span class="btn-wf primary" style="margin-top:14px;display:inline-block">Jetzt registrieren →</span>
+  </div>
+
+  <div class="wf-footer">
+    <div class="wf-footer-cols">
+      <div><strong style="font-family:'Arial Black';font-size:32px">KICKBACK.</strong><div class="text-line"></div><div class="text-line medium"></div></div>
+      <div><strong>SHOP</strong><div class="text-line short"></div><div class="text-line short"></div><div class="text-line short"></div></div>
+      <div><strong>MITMACHEN</strong><div class="text-line short"></div><div class="text-line short"></div><div class="text-line short"></div></div>
+      <div><strong>ABOUT</strong><div class="text-line short"></div><div class="text-line short"></div><div class="text-line short"></div></div>
+    </div>
+    <div class="wf-footer-bottom"><span>© 2026 Kickback GmbH</span><span>Made in Bern</span><span>v 2.0</span></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     2) HOME — MOBILE (380px)
+     ==================================================================== -->
+<section class="wf-frame mobile">
+  <span class="label">02 / Home / Mobile · ≤ 500px</span>
+
+  <div class="wf-header">
+    <div class="wf-logo">Kickback ●</div>
+    <div class="wf-burger"></div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>Saison 24/25</span></div>
+    <h1 class="wf-hero-title">HEART</h1>
+    <h1 class="wf-hero-title outline">ON YOUR</h1>
+    <h1 class="wf-hero-title">SLEEVE.</h1>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+      <span class="btn-wf primary">Sortiment →</span>
+      <span class="btn-wf">Verlosung →</span>
+    </div>
+    <div class="text-line" style="margin-top:14px"></div>
+    <div class="text-line medium"></div>
+    <div class="text-line short"></div>
+
+    <div style="margin-top: 20px;">
+      <div class="wf-slider">
+        <div class="wf-slide"><svg class="cross-svg" viewBox="0 0 100 125"><line x1="0" y1="0" x2="100" y2="125" stroke="black"/><line x1="100" y1="0" x2="0" y2="125" stroke="black"/></svg></div>
+        <div class="wf-slide"><svg class="cross-svg" viewBox="0 0 100 125"><line x1="0" y1="0" x2="100" y2="125" stroke="black"/><line x1="100" y1="0" x2="0" y2="125" stroke="black"/></svg></div>
+      </div>
+      <div class="wf-controls"><div class="arrow">←</div><div class="arrow">→</div><div class="wf-progress"></div></div>
+    </div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>Sortiment</span></div>
+    <div class="wf-grid-4">
+      <div class="wf-card"><svg class="cross-svg" viewBox="0 0 100 75"><line x1="0" y1="0" x2="100" y2="75" stroke="black"/><line x1="100" y1="0" x2="0" y2="75" stroke="black"/></svg><span class="label">Aktuelle</span></div>
+      <div class="wf-card"><svg class="cross-svg" viewBox="0 0 100 75"><line x1="0" y1="0" x2="100" y2="75" stroke="black"/><line x1="100" y1="0" x2="0" y2="75" stroke="black"/></svg><span class="label">Retro</span></div>
+    </div>
+  </div>
+
+  <div class="wf-section" style="background:#F4F4F4">
+    <div class="wf-section-title"><span>Mitglieder</span></div>
+    <h2 style="font-family:'Arial Black';font-size:32px;text-transform:uppercase;line-height:1;">DEIN CLUB,<br>DEIN VORTEIL.</h2>
+    <div style="margin-top: 12px;">
+      <div style="border-top: 1.2px solid var(--line); padding: 10px 0; display: flex; gap: 8px; align-items: baseline;"><span style="font-family:'Courier New';font-size:9px">01</span><strong style="font-family:'Arial Black';font-size:18px">BASIC</strong><span style="margin-left:auto;font-size:11px">CHF 0</span></div>
+      <div style="border-top: 1.2px solid var(--line); padding: 10px 0; display: flex; gap: 8px; align-items: baseline;"><span style="font-family:'Courier New';font-size:9px">02</span><strong style="font-family:'Arial Black';font-size:18px">PREMIUM</strong><span style="margin-left:auto;font-size:11px">CHF 49</span></div>
+      <div style="border-top: 1.2px solid var(--line); border-bottom: 1.2px solid var(--line); padding: 10px 0; display: flex; gap: 8px; align-items: baseline;"><span style="font-family:'Courier New';font-size:9px">03</span><strong style="font-family:'Arial Black';font-size:18px">ELITE</strong><span style="margin-left:auto;font-size:11px">CHF 129</span></div>
+    </div>
+  </div>
+
+  <div class="wf-footer">
+    <div class="wf-footer-cols">
+      <div><strong style="font-family:'Arial Black';font-size:24px">KICKBACK.</strong></div>
+      <div><strong>SHOP</strong><div class="text-line short"></div></div>
+      <div><strong>MITMACHEN</strong><div class="text-line short"></div></div>
+      <div><strong>ABOUT</strong><div class="text-line short"></div></div>
+    </div>
+    <div class="wf-footer-bottom"><span>© 2026</span><span>v 2.0</span></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     3) SHOP — DESKTOP
+     ==================================================================== -->
+<section class="wf-frame desktop">
+  <span class="label">03 / Shop / Desktop · 1200px</span>
+
+  <div class="wf-header">
+    <div class="wf-logo">Kickback ●</div>
+    <nav class="wf-nav wf-desktop-only">
+      <a href="#">Home</a>
+      <a href="#" class="active">Sortiment</a>
+      <a href="#">Promotion</a>
+    </nav>
+    <div class="wf-cta wf-desktop-only"><span class="btn-wf primary">Jetzt Mitmachen →</span></div>
+  </div>
+
+  <div class="wf-section solid" style="background:var(--line);color:var(--bg);padding:8px 20px;">
+    <div style="font-family:'Courier New';font-size:11px;letter-spacing:.15em">&#10033; Versandkostenfrei ab CHF 80 &nbsp; &#10033; Retro-Klassiker</div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>Sortiment · 26 Produkte</span><span class="meta">No. 02 / 03</span></div>
+    <h1 class="wf-hero-title">ALLE</h1>
+    <h1 class="wf-hero-title">TRIKOTS</h1>
+    <h1 class="wf-hero-title outline">AUF EINEN BLICK.</h1>
+    <div class="text-line" style="margin-top:12px"></div>
+    <div class="text-line medium"></div>
+  </div>
+
+  <div class="wf-section">
+    <!-- Filter Controls -->
+    <div style="display:grid;grid-template-columns: 2fr 1fr 1fr 1fr auto;gap:8px;margin-bottom:12px;">
+      <div class="wf-input">🔍  Suchen — Verein, Saison, Marke …</div>
+      <div class="wf-input">▼  Alle Ligen</div>
+      <div class="wf-input">▼  Alle Saisons</div>
+      <div class="wf-input">▼  Alle Kategorien</div>
+      <span class="btn-wf">Reset</span>
+    </div>
+    <div style="display:flex;gap:8px;font-family:'Courier New';font-size:10px;letter-spacing:.15em;margin-bottom:12px">
+      <span class="tag" style="background:var(--line);color:var(--bg)">26 TREFFER</span>
+      <span style="color:var(--soft)">/ AKTIVE FILTER: —</span>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="wf-grid-4">
+      <div class="wf-card" style="aspect-ratio:auto;height:auto;flex-direction:column;align-items:stretch;padding:0">
+        <div style="aspect-ratio: 1/1; border-bottom: 1.2px solid var(--line); position: relative;">
+          <span class="tag" style="position:absolute;top:8px;left:8px;font-size:9px">SAISON 24/25</span>
+          <svg class="cross-svg" viewBox="0 0 100 100"><line x1="0" y1="0" x2="100" y2="100" stroke="black"/><line x1="100" y1="0" x2="0" y2="100" stroke="black"/></svg>
+        </div>
+        <div style="padding: 10px;">
+          <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft)">LA LIGA · NIKE</div>
+          <strong style="font-family:'Arial Black';font-size:14px;text-transform:uppercase">FC Barcelona</strong>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <strong style="font-family:'Arial Black';font-size:18px">CHF 119.90</strong>
+            <span style="width:28px;height:28px;border-radius:50%;border:1.2px solid var(--line);display:grid;place-items:center">+</span>
+          </div>
+        </div>
+      </div>
+      <div class="wf-card" style="aspect-ratio:auto;height:auto;flex-direction:column;align-items:stretch;padding:0">
+        <div style="aspect-ratio: 1/1; border-bottom: 1.2px solid var(--line); position: relative;">
+          <span class="tag" style="position:absolute;top:8px;left:8px;font-size:9px">SAISON 24/25</span>
+          <svg class="cross-svg" viewBox="0 0 100 100"><line x1="0" y1="0" x2="100" y2="100" stroke="black"/><line x1="100" y1="0" x2="0" y2="100" stroke="black"/></svg>
+        </div>
+        <div style="padding: 10px;">
+          <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft)">PREMIER · NIKE</div>
+          <strong style="font-family:'Arial Black';font-size:14px;text-transform:uppercase">FC Liverpool</strong>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <strong style="font-family:'Arial Black';font-size:18px">CHF 114.90</strong>
+            <span style="width:28px;height:28px;border-radius:50%;border:1.2px solid var(--line);display:grid;place-items:center">+</span>
+          </div>
+        </div>
+      </div>
+      <div class="wf-card" style="aspect-ratio:auto;height:auto;flex-direction:column;align-items:stretch;padding:0">
+        <div style="aspect-ratio: 1/1; border-bottom: 1.2px solid var(--line); position: relative;">
+          <span class="tag" style="position:absolute;top:8px;left:8px;font-size:9px;background:var(--line);color:var(--bg)">RETRO</span>
+          <svg class="cross-svg" viewBox="0 0 100 100"><line x1="0" y1="0" x2="100" y2="100" stroke="black"/><line x1="100" y1="0" x2="0" y2="100" stroke="black"/></svg>
+        </div>
+        <div style="padding: 10px;">
+          <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft)">BUNDESLIGA · NIKE</div>
+          <strong style="font-family:'Arial Black';font-size:14px;text-transform:uppercase">BVB 1996</strong>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <strong style="font-family:'Arial Black';font-size:18px">CHF 119.90</strong>
+            <span style="width:28px;height:28px;border-radius:50%;border:1.2px solid var(--line);display:grid;place-items:center">+</span>
+          </div>
+        </div>
+      </div>
+      <div class="wf-card" style="aspect-ratio:auto;height:auto;flex-direction:column;align-items:stretch;padding:0">
+        <div style="aspect-ratio: 1/1; border-bottom: 1.2px solid var(--line); position: relative;">
+          <span class="tag" style="position:absolute;top:8px;left:8px;font-size:9px">SAISON 24/25</span>
+          <svg class="cross-svg" viewBox="0 0 100 100"><line x1="0" y1="0" x2="100" y2="100" stroke="black"/><line x1="100" y1="0" x2="0" y2="100" stroke="black"/></svg>
+        </div>
+        <div style="padding: 10px;">
+          <div style="font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--soft)">BUNDESLIGA · ADIDAS</div>
+          <strong style="font-family:'Arial Black';font-size:14px;text-transform:uppercase">Bayern München</strong>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+            <strong style="font-family:'Arial Black';font-size:18px">CHF 119.90</strong>
+            <span style="width:28px;height:28px;border-radius:50%;border:1.2px solid var(--line);display:grid;place-items:center">+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-line short" style="margin-top: 12px"></div>
+    <div style="font-family:'Courier New';font-size:10px;letter-spacing:.15em;margin-top:4px">… 22 weitere Produkte ↓</div>
+  </div>
+
+  <div class="wf-footer">
+    <div class="wf-footer-cols">
+      <div><strong style="font-family:'Arial Black';font-size:32px">KICKBACK.</strong></div>
+      <div><strong>SHOP</strong><div class="text-line short"></div></div>
+      <div><strong>MITMACHEN</strong><div class="text-line short"></div></div>
+      <div><strong>ABOUT</strong><div class="text-line short"></div></div>
+    </div>
+    <div class="wf-footer-bottom"><span>© 2026</span><span>Bern</span><span>v 2.0</span></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     4) SHOP — MOBILE
+     ==================================================================== -->
+<section class="wf-frame mobile">
+  <span class="label">04 / Shop / Mobile · ≤ 500px</span>
+
+  <div class="wf-header">
+    <div class="wf-logo">Kickback ●</div>
+    <div class="wf-burger"></div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>Sortiment · 26 Produkte</span></div>
+    <h1 class="wf-hero-title">ALLE</h1>
+    <h1 class="wf-hero-title">TRIKOTS</h1>
+    <h1 class="wf-hero-title outline">AUF EINEN BLICK.</h1>
+  </div>
+
+  <div class="wf-section">
+    <div style="display:grid;gap:8px;margin-bottom:10px">
+      <div class="wf-input">🔍  Suchen …</div>
+      <div class="wf-input">▼  Alle Ligen</div>
+      <div class="wf-input">▼  Alle Saisons</div>
+      <div class="wf-input">▼  Alle Kategorien</div>
+      <span class="btn-wf">Reset</span>
+    </div>
+    <div style="font-family:'Courier New';font-size:10px;margin-bottom:8px"><span class="tag" style="background:var(--line);color:var(--bg)">26 TREFFER</span></div>
+
+    <div class="wf-grid-2">
+      <div class="wf-card" style="aspect-ratio:auto;flex-direction:column;align-items:stretch;padding:0">
+        <div style="aspect-ratio:1/1;border-bottom:1.2px solid var(--line);position:relative">
+          <span class="tag" style="position:absolute;top:6px;left:6px;font-size:8px">24/25</span>
+          <svg class="cross-svg" viewBox="0 0 100 100"><line x1="0" y1="0" x2="100" y2="100" stroke="black"/><line x1="100" y1="0" x2="0" y2="100" stroke="black"/></svg>
+        </div>
+        <div style="padding:8px"><strong style="font-family:'Arial Black';font-size:11px;text-transform:uppercase">Barcelona</strong><div style="display:flex;justify-content:space-between;margin-top:4px"><strong style="font-size:13px">CHF 119</strong><span style="width:22px;height:22px;border:1.2px solid var(--line);border-radius:50%;text-align:center;line-height:20px">+</span></div></div>
+      </div>
+      <div class="wf-card" style="aspect-ratio:auto;flex-direction:column;align-items:stretch;padding:0">
+        <div style="aspect-ratio:1/1;border-bottom:1.2px solid var(--line);position:relative">
+          <span class="tag" style="position:absolute;top:6px;left:6px;font-size:8px">24/25</span>
+          <svg class="cross-svg" viewBox="0 0 100 100"><line x1="0" y1="0" x2="100" y2="100" stroke="black"/><line x1="100" y1="0" x2="0" y2="100" stroke="black"/></svg>
+        </div>
+        <div style="padding:8px"><strong style="font-family:'Arial Black';font-size:11px;text-transform:uppercase">Liverpool</strong><div style="display:flex;justify-content:space-between;margin-top:4px"><strong style="font-size:13px">CHF 114</strong><span style="width:22px;height:22px;border:1.2px solid var(--line);border-radius:50%;text-align:center;line-height:20px">+</span></div></div>
+      </div>
+    </div>
+    <div style="font-family:'Courier New';font-size:9px;margin-top:8px">… weitere ↓</div>
+  </div>
+
+  <div class="wf-footer">
+    <div class="wf-footer-cols">
+      <div><strong style="font-family:'Arial Black';font-size:20px">KICKBACK.</strong></div>
+      <div><strong>SHOP</strong><div class="text-line short"></div></div>
+    </div>
+    <div class="wf-footer-bottom"><span>© 2026</span><span>v 2.0</span></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     5) PROMOTION — DESKTOP
+     ==================================================================== -->
+<section class="wf-frame desktop">
+  <span class="label">05 / Promotion / Desktop · 1200px</span>
+
+  <div class="wf-header">
+    <div class="wf-logo">Kickback ●</div>
+    <nav class="wf-nav wf-desktop-only">
+      <a href="#">Home</a><a href="#">Sortiment</a><a href="#" class="active">Promotion</a>
+    </nav>
+    <div class="wf-cta wf-desktop-only"><span class="btn-wf primary">Jetzt Mitmachen →</span></div>
+  </div>
+
+  <div class="wf-section solid" style="background:var(--line);color:var(--bg);padding:8px 20px">
+    <div style="font-family:'Courier New';font-size:11px;letter-spacing:.15em">&#10033; Trikot-Verlosung 24/25 &nbsp; &#10033; Mit Striker Run zusätzliche Lose</div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>Promotion · Kollektion 24/25</span><span class="meta">No. 03 / 03</span></div>
+    <h1 class="wf-hero-title">DEIN</h1>
+    <h1 class="wf-hero-title">TRIKOT</h1>
+    <h1 class="wf-hero-title outline">FÜR LAU.</h1>
+    <div class="text-line" style="margin-top:12px"></div>
+    <div class="text-line medium"></div>
+  </div>
+
+  <div class="wf-section">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <!-- Form -->
+      <div style="border:1.5px solid var(--line);background:#F4F4F4;padding:20px">
+        <div style="font-family:'Courier New';font-size:11px;letter-spacing:.15em">● FORMULAR · DB-ANBINDUNG</div>
+        <h2 style="font-family:'Arial Black';font-size:36px;line-height:1;text-transform:uppercase;margin-top:8px">An der<br>Verlosung<br>teilnehmen.</h2>
+        <div class="text-line" style="margin-top:8px"></div>
+        <div class="text-line medium"></div>
+
+        <div class="wf-form" style="margin-top:16px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div><div style="font-size:9px;text-transform:uppercase;letter-spacing:.15em">NAME *</div><div class="wf-input">Vor- & Nachname</div></div>
+            <div><div style="font-size:9px;text-transform:uppercase;letter-spacing:.15em">E-MAIL *</div><div class="wf-input">dein@email.com</div></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div><div style="font-size:9px;text-transform:uppercase;letter-spacing:.15em">VEREIN *</div><div class="wf-input">▼  Wählen…</div></div>
+            <div><div style="font-size:9px;text-transform:uppercase;letter-spacing:.15em">GRÖSSE *</div><div class="wf-input">▼  Wählen…</div></div>
+          </div>
+          <div class="wf-checkbox">Newsletter abonnieren</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:6px"><span class="btn-wf primary">Teilnehmen →</span><span style="margin-left:auto;font-size:10px;color:var(--soft);font-family:'Courier New'">STATUS: …</span></div>
+        </div>
+      </div>
+
+      <!-- Game -->
+      <div style="border:1.5px solid var(--line);padding:20px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <div>
+            <div style="font-family:'Courier New';font-size:11px;letter-spacing:.15em">● MINI-GAME · STRIKER RUN</div>
+            <h2 style="font-family:'Arial Black';font-size:36px;line-height:1;text-transform:uppercase;margin-top:8px">Striker<br>Run.</h2>
+          </div>
+          <div style="display:flex;gap:12px">
+            <div style="text-align:center"><div style="font-family:'Arial Black';font-size:24px">0</div><div style="font-size:9px;text-transform:uppercase">GOALS</div></div>
+            <div style="text-align:center"><div style="font-family:'Arial Black';font-size:24px">0</div><div style="font-size:9px;text-transform:uppercase">BEST</div></div>
+          </div>
+        </div>
+        <div class="wf-game" style="margin-top:12px"></div>
+        <div style="font-family:'Courier New';font-size:9px;letter-spacing:.15em;margin-top:8px;display:flex;gap:12px"><span>↑ / SPACE = JUMP</span><span>✱ BALL = +1 GOAL</span><span>✱ CONE = GAME OVER</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>FAQ · Häufige Fragen</span><span class="meta">No. 04</span></div>
+    <div class="wf-faq-row"><span>Wie funktioniert die Verlosung?</span><span class="plus">+</span></div>
+    <div class="wf-faq-row"><span>Was passiert mit meinen Daten?</span><span class="plus">+</span></div>
+    <div class="wf-faq-row"><span>Wie wird der Gewinner benachrichtigt?</span><span class="plus">+</span></div>
+    <div class="wf-faq-row"><span>Kann ich mehrfach mitmachen?</span><span class="plus">+</span></div>
+  </div>
+
+  <div class="wf-footer">
+    <div class="wf-footer-cols">
+      <div><strong style="font-family:'Arial Black';font-size:32px">KICKBACK.</strong></div>
+      <div><strong>SHOP</strong><div class="text-line short"></div></div>
+      <div><strong>MITMACHEN</strong><div class="text-line short"></div></div>
+      <div><strong>ABOUT</strong><div class="text-line short"></div></div>
+    </div>
+    <div class="wf-footer-bottom"><span>© 2026</span><span>Bern</span><span>v 2.0</span></div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     6) PROMOTION — MOBILE
+     ==================================================================== -->
+<section class="wf-frame mobile">
+  <span class="label">06 / Promotion / Mobile · ≤ 500px</span>
+
+  <div class="wf-header">
+    <div class="wf-logo">Kickback ●</div>
+    <div class="wf-burger"></div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>Promotion 24/25</span></div>
+    <h1 class="wf-hero-title">DEIN</h1>
+    <h1 class="wf-hero-title">TRIKOT</h1>
+    <h1 class="wf-hero-title outline">FÜR LAU.</h1>
+    <div class="text-line" style="margin-top:8px"></div>
+    <div class="text-line medium"></div>
+  </div>
+
+  <div class="wf-section">
+    <div style="border:1.5px solid var(--line);background:#F4F4F4;padding:14px">
+      <div style="font-family:'Courier New';font-size:9px;letter-spacing:.15em">● FORMULAR · DB</div>
+      <h2 style="font-family:'Arial Black';font-size:24px;line-height:1;text-transform:uppercase;margin-top:6px">Verlosung<br>teilnehmen.</h2>
+      <div class="wf-form" style="margin-top:10px">
+        <div><div style="font-size:8px;letter-spacing:.15em">NAME *</div><div class="wf-input">Name</div></div>
+        <div><div style="font-size:8px;letter-spacing:.15em">E-MAIL *</div><div class="wf-input">dein@email.com</div></div>
+        <div><div style="font-size:8px;letter-spacing:.15em">VEREIN *</div><div class="wf-input">▼  Wählen…</div></div>
+        <div><div style="font-size:8px;letter-spacing:.15em">GRÖSSE *</div><div class="wf-input">▼  Wählen…</div></div>
+        <div class="wf-checkbox">Newsletter</div>
+        <span class="btn-wf primary">Teilnehmen →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-section">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div>
+        <div style="font-family:'Courier New';font-size:9px;letter-spacing:.15em">● MINI-GAME</div>
+        <h2 style="font-family:'Arial Black';font-size:24px;line-height:1;text-transform:uppercase;margin-top:4px">Striker Run.</h2>
+      </div>
+      <div style="display:flex;gap:8px">
+        <div style="text-align:center"><div style="font-family:'Arial Black';font-size:18px">0</div><div style="font-size:8px">GOALS</div></div>
+        <div style="text-align:center"><div style="font-family:'Arial Black';font-size:18px">0</div><div style="font-size:8px">BEST</div></div>
+      </div>
+    </div>
+    <div class="wf-game" style="margin-top:8px"></div>
+    <div style="font-family:'Courier New';font-size:8px;letter-spacing:.15em;margin-top:6px">TAP = JUMP · ✱ BALL +1 · ✱ CONE OVER</div>
+  </div>
+
+  <div class="wf-section">
+    <div class="wf-section-title"><span>FAQ</span></div>
+    <div class="wf-faq-row" style="font-size:14px"><span>Wie funktioniert das?</span><span class="plus">+</span></div>
+    <div class="wf-faq-row" style="font-size:14px"><span>Daten?</span><span class="plus">+</span></div>
+    <div class="wf-faq-row" style="font-size:14px"><span>Gewinner?</span><span class="plus">+</span></div>
+  </div>
+
+  <div class="wf-footer">
+    <div class="wf-footer-cols">
+      <div><strong style="font-family:'Arial Black';font-size:20px">KICKBACK.</strong></div>
+      <div><strong>SHOP</strong><div class="text-line short"></div></div>
+    </div>
+    <div class="wf-footer-bottom"><span>© 2026</span><span>v 2.0</span></div>
+  </div>
+</section>
+
+</body>
+</html>
