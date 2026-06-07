@@ -37,7 +37,11 @@
 /* ---------- 2. Reset ------------------------------------------------------- */
 *,*::before,*::after { box-sizing: border-box; }
 * { margin: 0; padding: 0; }
-html, body { height: 100%; }
+/* WICHTIG: kein height:100% auf html/body. Zusammen mit body{overflow-x:hidden}
+   würde der Body sonst zu einem fixen, Viewport-hohen Scroll-Container – der
+   Inhalt (.shell) quillt heraus und am Seitenende bleibt ein grosser leerer
+   Bereich (der Footer wird unerreichbar). Die volle Höhe für kurze Seiten
+   regelt .shell über min-height:100dvh. */
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 img, svg, video, canvas { display: block; max-width: 100%; }
 button { font: inherit; cursor: pointer; border: 0; background: transparent; color: inherit; }
