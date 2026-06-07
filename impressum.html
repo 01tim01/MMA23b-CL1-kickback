@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sortiment — Kickback</title>
-  <meta name="description" content="Aktuelle Saison-Trikots und Retro-Klassiker — durchsuchbar nach Liga, Saison und Verein." />
+  <title>Impressum — Kickback</title>
+  <meta name="description" content="Impressum von Kickback — fiktiver Online-Shop für Fussballtrikots (Schulprojekt M291)." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,11 +23,10 @@
       </a>
       <nav class="nav" aria-label="Hauptnavigation">
         <a href="index.html">Home</a>
-        <a href="shop.html" aria-current="page">Sortiment</a>
+        <a href="shop.html">Sortiment</a>
         <a href="promotion.html">Promotion</a>
       </nav>
-      <a href="promotion.html" class="btn btn-accent header-cta btn-arrow">Jetzt Spielen</a>
-      <!-- Warenkorb-Icon (auf allen Seiten) -->
+      <a href="promotion.html#game" class="btn btn-accent header-cta btn-arrow">Jetzt Spielen</a>
       <button class="cart-toggle" aria-label="Warenkorb öffnen" data-cart-open>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
           <circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/>
@@ -47,82 +46,57 @@
     <a href="promotion.html"><span>Promotion</span><span class="idx">03</span></a>
   </nav>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Versandkostenfrei ab CHF 80 <span class="star">✱</span></span>
-      <span>Retro-Klassiker neu auf Lager <span class="star">✱</span></span>
-      <span>Jersey Runner: 5% Rabattcode <span class="star">✱</span></span>
-      <span>Made for Fans <span class="star">✱</span></span>
-      <span>Versandkostenfrei ab CHF 80 <span class="star">✱</span></span>
-      <span>Retro-Klassiker neu auf Lager <span class="star">✱</span></span>
-      <span>Jersey Runner: 5% Rabattcode <span class="star">✱</span></span>
-      <span>Made for Fans <span class="star">✱</span></span>
-    </div>
-  </div>
-
   <main>
-    <!-- =========================  PAGE HERO  =========================== -->
     <section class="container page-hero">
       <div class="head-row">
         <span class="star">✱</span>
-        <span class="eyebrow">Sortiment · 26 Produkte</span>
-        <span class="meta">No. 02 / 03</span>
+        <span class="eyebrow">Rechtliches</span>
       </div>
-      <h1>
-        ALLE<br>
-        <span style="color:var(--accent-deep)">TRIKOTS</span><br>
-        <span style="-webkit-text-stroke:2px var(--ink);color:transparent">AUF EINEN BLICK.</span>
-      </h1>
-      <div class="subline">
-        <p class="lead" style="max-width:42ch">
-          Filter nach Liga, Saison oder Kategorie — finde dein nächstes
-          Lieblingsstück.
-        </p>
-      </div>
+      <h1>IMPRESSUM</h1>
     </section>
 
-    <!-- =========================  CONTROLS  =========================== -->
-    <section class="container" aria-labelledby="filter-title">
-      <h2 id="filter-title" class="visually-hidden" style="position:absolute;left:-9999px">Filter</h2>
-      <div class="shop-controls">
-        <input id="search" class="input" type="search" placeholder="Suchen — Verein, Saison, Marke …" aria-label="Suchen" />
-        <select id="filterLiga" class="select" aria-label="Liga"><option value="">Alle Ligen</option></select>
-        <select id="filterSaison" class="select" aria-label="Saison"><option value="">Alle Saisons</option></select>
-        <select id="filterKategorie" class="select" aria-label="Kategorie"><option value="">Alle Kategorien</option></select>
-        <button id="reset" class="btn btn-ghost">Reset</button>
-      </div>
+    <section class="container section" style="max-width:760px">
+      <h2 class="h-m">Angaben zum Betreiber</h2>
+      <p style="margin:.75rem 0 2rem">
+        Kickback GmbH<br>
+        Stadionweg 24<br>
+        6003 Luzern<br>
+        Schweiz
+      </p>
 
-      <div class="shop-meta">
-        <span id="count" class="count">…</span>
-        <span class="muted" id="active-filters"></span>
-      </div>
+      <h2 class="h-m">Kontakt</h2>
+      <p style="margin:.75rem 0 2rem">
+        E-Mail: <a href="mailto:hello@kickback.ch" style="text-decoration:underline">hello@kickback.ch</a><br>
+        Telefon: +41 41 123 45 67
+      </p>
 
-      <div id="product-grid" class="product-grid reveal" aria-live="polite">
-        <!-- gerendert per JS -->
-      </div>
-    </section>
+      <h2 class="h-m">Handelsregister</h2>
+      <p style="margin:.75rem 0 2rem">
+        Eingetragen im Handelsregister des Kantons Luzern<br>
+        Unternehmens-Identifikationsnummer: CHE-123.456.789<br>
+        Mehrwertsteuer-Nr.: CHE-123.456.789 MWST<br>
+        Geschäftsführung: M. Beispiel
+      </p>
 
-    <!-- =========================  TEASER (dark)  =========================== -->
-    <section class="container section">
-      <div class="section-dark">
-        <div class="container">
-          <div class="head-row">
-            <span class="star" style="color:var(--accent)">✱</span>
-            <span class="eyebrow" style="color:var(--accent)">Promo · Jersey Runner</span>
-          </div>
-          <h2 class="h-xl" style="color:var(--bg);max-width:18ch">
-            TRIKOT GEFUNDEN — UND<br>
-            JETZT <span style="color:var(--accent)">5% RABATT</span> DAZU?
-          </h2>
-          <p class="lead" style="max-width:48ch;margin-top:1rem">
-            Spiel den Kickback Jersey Runner, sammle die Münze und schalte
-            deinen 5%-Rabattcode frei — direkt hier im Warenkorb einlösbar.
-          </p>
-          <div class="cta-row" style="margin-top:1.5rem">
-            <a href="promotion.html#game" class="btn btn-arrow">Jersey Runner spielen</a>
-          </div>
-        </div>
-      </div>
+      <h2 class="h-m">Haftungsausschluss</h2>
+      <p style="margin:.75rem 0 2rem">
+        Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt.
+        Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird
+        keine Gewähr übernommen. Für Inhalte externer Links sind ausschliesslich
+        deren Betreiber verantwortlich.
+      </p>
+
+      <h2 class="h-m">Bild- und Markenrechte</h2>
+      <p style="margin:.75rem 0 2rem">
+        Die verwendeten Produktbilder, Logos und Vereinsnamen dienen
+        ausschliesslich Demonstrationszwecken.
+      </p>
+
+      <p class="muted" style="border-top:1.5px solid var(--ink);padding-top:1.5rem">
+        Hinweis: Kickback ist ein <strong>fiktiver Online-Shop</strong>, der im
+        Rahmen des Moduls M291 als Schulprojekt entstanden ist. Es findet kein
+        echter Verkauf statt.
+      </p>
     </section>
   </main>
 
@@ -161,7 +135,6 @@
           </div>
         </div>
       </div>
-
       <div class="footer-base">
         <span>© <span data-year>2026</span> Kickback GmbH</span>
         <span>Made in Luzern, Switzerland</span>
@@ -193,7 +166,6 @@
 </aside>
 
 <script src="js/main.js" defer></script>
-<script src="js/shop.js" defer></script>
 <script src="js/cart.js" defer></script>
 </body>
 </html>

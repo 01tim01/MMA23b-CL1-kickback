@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Promotion — Kickback</title>
-  <meta name="description" content="Trag dich in die Trikot-Verlosung ein und spiele unseren Striker Run." />
+  <meta name="description" content="Spiel den Kickback Jersey Runner, sammle die Münze und sichere dir 5% Rabatt. Plus: tritt der Crew bei." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +12,8 @@
 
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" type="image/svg+xml" href="img/KickBack_Logo_transparent.svg" />
+  <link rel="preload" href="img/game/stadion.jpg" as="image" />
+  <link rel="preload" href="img/game/player.png" as="image" />
 </head>
 <body>
 <div class="shell">
@@ -26,7 +28,15 @@
         <a href="shop.html">Sortiment</a>
         <a href="promotion.html" aria-current="page">Promotion</a>
       </nav>
-      <a href="#form" class="btn btn-accent header-cta btn-arrow">Jetzt Mitmachen</a>
+      <a href="#game" class="btn btn-accent header-cta btn-arrow">Jetzt Spielen</a>
+      <!-- Warenkorb-Icon (auf allen Seiten) -->
+      <button class="cart-toggle" aria-label="Warenkorb öffnen" data-cart-open>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/>
+          <path d="M2 3h3l2.4 12.2a1 1 0 0 0 1 .8h8.2a1 1 0 0 0 1-.8L21 7H6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="cart-count" data-cart-count>0</span>
+      </button>
       <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
         <span></span>
       </button>
@@ -41,13 +51,13 @@
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
-      <span>Mit Striker Run zusätzliche Lose <span class="star">✱</span></span>
-      <span>Teilnahme bis 31.07. <span class="star">✱</span></span>
+      <span>Jersey Runner spielen <span class="star">✱</span></span>
+      <span>Münze sammeln = 5% Rabattcode <span class="star">✱</span></span>
+      <span>Code im Warenkorb einlösen <span class="star">✱</span></span>
       <span>Made for Fans <span class="star">✱</span></span>
-      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
-      <span>Mit Striker Run zusätzliche Lose <span class="star">✱</span></span>
-      <span>Teilnahme bis 31.07. <span class="star">✱</span></span>
+      <span>Jersey Runner spielen <span class="star">✱</span></span>
+      <span>Münze sammeln = 5% Rabattcode <span class="star">✱</span></span>
+      <span>Code im Warenkorb einlösen <span class="star">✱</span></span>
       <span>Made for Fans <span class="star">✱</span></span>
     </div>
   </div>
@@ -61,111 +71,134 @@
         <span class="meta">No. 03 / 03</span>
       </div>
       <h1>
-        DEIN<br>
-        <span style="color:var(--accent-deep)">TRIKOT</span><br>
-        <span style="-webkit-text-stroke:2px var(--ink);color:transparent">FÜR LAU.</span>
+        SPIEL DICH<br>
+        <span style="color:var(--accent-deep)">ZUM</span><br>
+        <span style="-webkit-text-stroke:2px var(--ink);color:transparent">RABATT.</span>
       </h1>
       <div class="subline">
         <p class="lead" style="max-width:50ch">
-          Trag dich ein, schiess ein paar Tore — und sicher dir die Chance,
-          dein Lieblingstrikot kostenlos nach Hause zu bekommen. Pro Tor im
-          Striker Run ein zusätzliches Los.
+          Spring im Kickback Jersey Runner über die Verteidiger und schnapp dir
+          die leuchtende Münze. Wer sie einsammelt, schaltet den 5%-Rabattcode
+          frei — direkt im Warenkorb einlösbar.
         </p>
       </div>
     </section>
 
-    <!-- =========================  FORM + GAME  =========================== -->
-    <section class="container" id="form">
-      <div class="promo-grid reveal">
-        <!-- ============= FORM ============= -->
-        <div class="promo-card">
-          <span class="eyebrow"><span class="dot"></span>Formular · DB-Anbindung</span>
-          <h2>An der<br>Verlosung<br>teilnehmen.</h2>
-          <p>
-            Wir verlosen jede Woche ein Trikot deiner Wahl. Drei Felder genügen
-            — und mit jedem Goal aus dem Striker Run ein zusätzliches Los.
-          </p>
+    <!-- =========================  GAME (Jersey Runner)  =============== -->
+    <section class="container section" id="game">
+      <div class="game-card reveal" aria-labelledby="game-title">
+        <header class="game-head">
+          <div class="game-title-block">
+            <p class="eyebrow"><span class="dot"></span> Kickback Promo-Spiel</p>
+            <h2 id="game-title">Kickback Jersey Runner</h2>
+            <p class="lead">Spring über die Verteidiger und sammle die Rabattmünze.</p>
+          </div>
+          <div class="game-stats" aria-live="polite">
+            <div class="stat"><span id="scoreValue" class="v">0</span><span class="l">Punkte</span></div>
+            <div class="stat"><span id="highScoreValue" class="v">0</span><span class="l">Highscore</span></div>
+          </div>
+        </header>
 
-          <form id="verlosung-form" class="form" novalidate>
-            <div class="form-row two">
-              <div class="field" data-field="name">
-                <label for="f-name">Name *</label>
-                <input id="f-name" name="name" type="text" placeholder="Vor- & Nachname" required />
-                <span class="error">Bitte Namen eingeben (mind. 2 Zeichen).</span>
-              </div>
-              <div class="field" data-field="email">
-                <label for="f-email">E-Mail *</label>
-                <input id="f-email" name="email" type="email" placeholder="dein@email.com" required />
-                <span class="error">Bitte gültige E-Mail eingeben.</span>
-              </div>
-            </div>
+        <div id="gameStage" class="game-canvas-wrap game-stage" tabindex="0" aria-label="Kickback Jersey Runner Spielfeld">
+          <div class="stadium-vignette" aria-hidden="true"></div>
+          <div class="pitch-lines" aria-hidden="true"></div>
 
-            <div class="form-row two">
-              <div class="field" data-field="lieblingsverein">
-                <label for="f-club">Lieblingsverein *</label>
-                <select id="f-club" name="lieblingsverein" required>
-                  <option value="">Wählen...</option>
-                </select>
-                <span class="error">Verein auswählen.</span>
-              </div>
-              <div class="field" data-field="groesse">
-                <label for="f-size">Trikotgrösse *</label>
-                <select id="f-size" name="groesse" required>
-                  <option value="">Wählen...</option>
-                  <option>S</option><option>M</option><option>L</option>
-                  <option>XL</option><option>XXL</option>
-                </select>
-                <span class="error">Grösse auswählen.</span>
-              </div>
-            </div>
+          <div id="objectLayer" class="object-layer" aria-hidden="true"></div>
+          <div id="particleLayer" class="particle-layer" aria-hidden="true"></div>
+          <div id="coinToast" class="coin-toast" aria-live="polite">Rabattcode freigeschaltet!</div>
 
-            <label class="checkbox">
-              <input type="checkbox" id="f-news" name="newsletter">
-              <span>Ja, ich möchte Drops & Promotions per Newsletter erhalten.</span>
-            </label>
+          <img id="runner" class="runner" src="img/game/player.png" alt="" aria-hidden="true" draggable="false" />
 
-            <div class="form-actions">
-              <button type="submit" class="btn btn-accent btn-arrow">Teilnehmen</button>
-              <span id="form-status" class="form-status" role="status"></span>
-            </div>
-            <input type="hidden" id="f-score" name="spielstand" value="0" />
-          </form>
-        </div>
-
-        <!-- ============= GAME ============= -->
-        <div class="game-card" id="game">
-          <div class="game-head">
-            <div>
-              <span class="eyebrow"><span class="dot"></span>Mini-Game · Striker Run</span>
-              <h2 style="margin-top:.5rem">Striker<br>Run.</h2>
-            </div>
-            <div class="game-stats">
-              <div class="stat"><span class="v" id="game-score">0</span><span class="l">Goals</span></div>
-              <div class="stat"><span class="v" id="game-best">0</span><span class="l">Best</span></div>
+          <div id="startOverlay" class="game-overlay">
+            <div class="game-overlay__panel">
+              <p class="eyebrow"><span class="dot"></span> Premium Pixel-Fussball</p>
+              <h2>Kickback Jersey Runner</h2>
+              <p>Drücke <span class="key">LEER</span> oder tippe, um zu springen. Sammle die Rabattmünze und sichere dir deinen Code.</p>
+              <button id="startButton" class="btn btn-accent btn-arrow" type="button">Spiel starten</button>
             </div>
           </div>
 
-          <div class="game-canvas-wrap">
-            <canvas id="game-canvas" width="800" height="450" tabindex="0" aria-label="Striker Run – Geschicklichkeitsspiel"></canvas>
-            <div class="game-overlay" id="game-overlay">
-              <div>
-                <span class="eyebrow"><span class="dot"></span>Bereit?</span>
-                <h3 style="margin-top:.5rem">SPRING. WEICH AUS. SCORE.</h3>
-                <p>
-                  <span class="key">Space</span> oder <span class="key">↑</span> oder Tap zum Springen.<br>
-                  Weich Cones aus, sammle Bälle für Goals.
-                </p>
-                <button class="btn btn-accent" id="game-start">Anpfiff</button>
+          <div id="gameOverOverlay" class="game-overlay is-hidden">
+            <div class="game-overlay__panel">
+              <p class="eyebrow"><span class="dot"></span> Abpfiff</p>
+              <h2>Spiel vorbei</h2>
+              <p>Deine Punkte: <strong id="finalScoreValue">0</strong></p>
+              <p>Highscore: <strong id="finalHighScoreValue">0</strong></p>
+              <div id="gameOverReward" class="game-over-reward is-hidden">
+                <span>Dein Rabattcode</span>
+                <strong>KICKBACK5</strong>
+                <button id="copyButton" class="btn btn-ghost" type="button">Code kopieren</button>
+                <small id="copyFeedback" aria-live="polite"></small>
               </div>
+              <button id="restartButton" class="btn btn-accent btn-arrow" type="button">Neustart</button>
             </div>
-          </div>
-
-          <div class="game-help">
-            <span>↑ / Space / Tap = Jump</span>
-            <span>✱ Ball sammeln = +1 Goal</span>
-            <span>✱ Cone berühren = Game Over</span>
           </div>
         </div>
+
+        <div class="game-help">
+          <span>Leertaste oder Tippen zum Springen</span>
+          <span>Kein Doppelsprung</span>
+          <span>Rabattmünze einsammeln</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================  CREW / NEWSLETTER FORM  ============= -->
+    <section class="container section" id="crew">
+      <div class="promo-card reveal">
+        <span class="eyebrow"><span class="dot"></span>Crew beitreten · DB-Anbindung</span>
+        <h2>Werde Teil<br>der Crew.</h2>
+        <p>
+          Trag dich ein und verpasse keinen Drop, keine Retro-Neuheit und keine
+          Promo mehr. Drei Felder genügen — wir melden uns nur, wenn es etwas
+          Gutes gibt.
+        </p>
+
+        <form id="crew-form" class="form" novalidate>
+          <div class="form-row two">
+            <div class="field" data-field="name">
+              <label for="f-name">Name *</label>
+              <input id="f-name" name="name" type="text" placeholder="Vor- & Nachname" required />
+              <span class="error">Bitte Namen eingeben (mind. 2 Zeichen).</span>
+            </div>
+            <div class="field" data-field="email">
+              <label for="f-email">E-Mail *</label>
+              <input id="f-email" name="email" type="email" placeholder="dein@email.com" required />
+              <span class="error">Bitte gültige E-Mail eingeben.</span>
+            </div>
+          </div>
+
+          <div class="form-row two">
+            <div class="field" data-field="lieblingsverein">
+              <label for="f-club">Lieblingsverein *</label>
+              <select id="f-club" name="lieblingsverein" required>
+                <option value="">Wählen...</option>
+              </select>
+              <span class="error">Verein auswählen.</span>
+            </div>
+            <div class="field" data-field="groesse">
+              <label for="f-size">Trikotgrösse *</label>
+              <select id="f-size" name="groesse" required>
+                <option value="">Wählen...</option>
+                <option>S</option><option>M</option><option>L</option>
+                <option>XL</option><option>XXL</option>
+              </select>
+              <span class="error">Grösse auswählen.</span>
+            </div>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="f-news" name="newsletter">
+            <span>Ja, ich möchte Drops & Promotions per Newsletter erhalten.</span>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-accent btn-arrow">Beitreten</button>
+            <span id="form-status" class="form-status" role="status"></span>
+          </div>
+          <!-- Highscore aus dem Jersey Runner wird mitgespeichert -->
+          <input type="hidden" id="f-score" name="spielstand" value="0" />
+        </form>
       </div>
     </section>
 
@@ -180,13 +213,36 @@
       <div class="faq reveal">
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">
-            <span>Wie funktioniert die Verlosung?</span>
+            <span>Wie komme ich an den 5%-Rabattcode?</span>
             <span class="icon">+</span>
           </button>
           <div class="faq-a"><div><p>
-            Du trägst dich mit Name, E-Mail, Lieblingsverein und Trikotgrösse
-            ein. Jede Woche ziehen wir aus allen Teilnehmer:innen eine Person.
-            Mit jedem Goal im Striker Run sicherst du dir ein zusätzliches Los.
+            Starte den Kickback Jersey Runner, spring über die Verteidiger und
+            sammle die leuchtende Münze ein. Sobald du sie hast, erscheint am
+            Spielende dein Rabattcode <strong>KICKBACK5</strong> zum Kopieren.
+          </p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>Wo löse ich den Code ein?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-a"><div><p>
+            Leg deine Trikots im Sortiment in den Warenkorb, öffne den Warenkorb
+            oben rechts und gib den Code im Feld „Rabattcode" ein. Es werden
+            automatisch 5% vom Total abgezogen.
+          </p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span>Wie oft kann ich spielen?</span>
+            <span class="icon">+</span>
+          </button>
+          <div class="faq-a"><div><p>
+            So oft du willst — dein Highscore wird gespeichert. Den Rabattcode
+            schaltest du frei, sobald du die Münze zum ersten Mal einsammelst.
           </p></div></div>
         </div>
 
@@ -196,33 +252,10 @@
             <span class="icon">+</span>
           </button>
           <div class="faq-a"><div><p>
-            Deine Daten werden ausschliesslich für die Durchführung der
-            Verlosung verwendet. Wenn du den Newsletter aktiviert hast,
-            verschicken wir bis zu 2 Mails pro Monat — abmelden geht jederzeit.
-          </p></div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">
-            <span>Wie wird der Gewinner benachrichtigt?</span>
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-a"><div><p>
-            Wir melden uns per E-Mail bei der angegebenen Adresse. Antwortest
-            du innerhalb von 7 Tagen, schicken wir das Trikot deiner Wahl
-            kostenlos zu dir nach Hause.
-          </p></div></div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">
-            <span>Kann ich mehrfach mitmachen?</span>
-            <span class="icon">+</span>
-          </button>
-          <div class="faq-a"><div><p>
-            Pro E-Mail-Adresse gilt ein Eintrag — aber spielen kannst du so
-            oft du willst. Dein bestes Striker-Run-Ergebnis zählt für die
-            Anzahl Lose.
+            Deine Angaben aus dem Crew-Formular nutzen wir nur, um dich über
+            Drops und Promos zu informieren. Mehr dazu in unserer
+            <a href="datenschutz.html">Datenschutzerklärung</a>. Abmelden geht
+            jederzeit.
           </p></div></div>
         </div>
 
@@ -232,7 +265,7 @@
             <span class="icon">+</span>
           </button>
           <div class="faq-a"><div><p>
-            Aktuell verlosen wir nur Trikots aus den Top-5-Ligen + Schweizer
+            Aktuell führen wir Trikots aus den Top-5-Ligen plus der Schweizer
             Super League. Schreib uns an <a href="mailto:hello@kickback.ch">hello@kickback.ch</a>,
             wenn dein Verein fehlt — wir bauen das Sortiment laufend aus.
           </p></div></div>
@@ -246,14 +279,14 @@
         <div class="container">
           <div class="head-row">
             <span class="star" style="color:var(--accent)">✱</span>
-            <span class="eyebrow" style="color:var(--accent)">Kein Bock auf Glück?</span>
+            <span class="eyebrow" style="color:var(--accent)">Code in der Tasche?</span>
           </div>
           <h2 class="h-xl" style="color:var(--bg);max-width:14ch">
-            DANN<br>EINFACH<br><span style="color:var(--accent)">SHOPPEN.</span>
+            DANN AB<br>INS<br><span style="color:var(--accent)">SORTIMENT.</span>
           </h2>
           <p class="lead" style="margin-top:1rem;max-width:48ch">
             Im Sortiment findest du alle Trikots der aktuellen Saison plus
-            ausgewählte Retro-Klassiker.
+            ausgewählte Retro-Klassiker — Rabattcode nicht vergessen.
           </p>
           <div class="cta-row" style="margin-top:1.5rem">
             <a href="shop.html" class="btn btn-arrow">Zum Sortiment</a>
@@ -268,7 +301,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <h2 class="h-xl">KICK<span class="accent">BACK</span><span class="accent">.</span></h2>
-          <p>Trikots, die Geschichten erzählen — kuratiert in Bern, ausgeliefert in alle Welt.</p>
+          <p>Trikots, die Geschichten erzählen — kuratiert in Luzern, ausgeliefert in alle Welt.</p>
         </div>
         <div class="footer-cols">
           <div class="footer-col">
@@ -283,54 +316,54 @@
           <div class="footer-col">
             <h4>Mitmachen</h4>
             <ul>
-              <li><a href="promotion.html">Verlosung</a></li>
-              <li><a href="promotion.html#game">Striker Run</a></li>
+              <li><a href="promotion.html#game">Jersey Runner</a></li>
+              <li><a href="promotion.html#crew">Crew beitreten</a></li>
               <li><a href="promotion.html#faq">FAQ</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>About</h4>
             <ul>
-              <li><a href="#impressum">Impressum</a></li>
-              <li><a href="#datenschutz">Datenschutz</a></li>
+              <li><a href="impressum.html">Impressum</a></li>
+              <li><a href="datenschutz.html">Datenschutz</a></li>
               <li><a href="mailto:hello@kickback.ch">hello@kickback.ch</a></li>
             </ul>
           </div>
         </div>
       </div>
-
-      <!-- Impressum / About (Pflicht-Inhalt laut Anforderungen) -->
-      <div class="footer-legal">
-        <div id="impressum">
-          <h4>Impressum</h4>
-          <p>
-            Kickback GmbH · Stadionweg 24 · 3011 Bern, Schweiz<br>
-            <a href="mailto:hello@kickback.ch">hello@kickback.ch</a> · +41 31 123 45 67<br>
-            Handelsregister CHE-123.456.789 · MwSt-Nr. CHE-123.456.789 MWST<br>
-            Geschäftsführung: M. Beispiel · Bildrechte: Demo-Material (Schulprojekt M291)
-          </p>
-        </div>
-        <div id="datenschutz">
-          <h4>Über uns &amp; Datenschutz</h4>
-          <p>
-            Kickback ist ein fiktiver Online-Shop für Fussballtrikots, entstanden im
-            Modul M291. Eingegebene Formulardaten (Verlosung) dienen ausschliesslich
-            der Demonstration der Datenbank-Anbindung und werden nicht
-            weitergegeben. Es werden keine Tracking-Cookies gesetzt.
-          </p>
-        </div>
-      </div>
-
       <div class="footer-base">
         <span>© <span data-year>2026</span> Kickback GmbH</span>
-        <span>Made in Bern, Switzerland</span>
+        <span>Made in Luzern, Switzerland</span>
         <span>v 2.0 · M291</span>
       </div>
     </div>
   </footer>
 </div>
 
+<!-- ===================  WARENKORB (Drawer)  =================== -->
+<div class="cart-backdrop" data-cart-backdrop></div>
+<aside class="cart-drawer" data-cart-drawer aria-label="Warenkorb" aria-hidden="true">
+  <div class="cart-head">
+    <h3>Warenkorb</h3>
+    <button class="cart-close" data-cart-close aria-label="Warenkorb schliessen">✕</button>
+  </div>
+  <div class="cart-items" data-cart-items></div>
+  <div class="cart-foot" data-cart-foot>
+    <div class="cart-code">
+      <input type="text" data-cart-code placeholder="Rabattcode (z. B. KICKBACK5)" aria-label="Rabattcode" />
+      <button class="btn btn-ghost" data-cart-apply type="button">Anwenden</button>
+    </div>
+    <div class="cart-line"><span>Zwischensumme</span><span data-cart-subtotal>–</span></div>
+    <div class="cart-line discount" data-cart-discount-line hidden><span>Rabatt (5%)</span><span data-cart-discount>–</span></div>
+    <div class="cart-line total"><span>Total</span><span data-cart-total>–</span></div>
+    <p class="cart-msg" data-cart-msg></p>
+    <button class="btn btn-accent btn-arrow" data-cart-checkout type="button">Zur Kasse</button>
+  </div>
+</aside>
+
 <script src="js/main.js" defer></script>
 <script src="js/promotion.js" defer></script>
+<script src="js/jersey-runner.js" defer></script>
+<script src="js/cart.js" defer></script>
 </body>
 </html>

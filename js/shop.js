@@ -170,7 +170,11 @@
             </div>
             <div class="footer-row">
               <span class="price">${fmtCHF(p.preis)}</span>
-              <button class="add" aria-label="In den Warenkorb" title="In den Warenkorb">+</button>
+              <button class="add"
+                      data-title="${(v?.name ?? p.titel ?? 'Trikot')}${isRetro ? ' · Retro' : ' · Saison ' + (p.saison ?? '')}"
+                      data-price="${p.preis}"
+                      data-img="${img}"
+                      aria-label="In den Warenkorb" title="In den Warenkorb">+</button>
             </div>
           </div>
         </article>`;

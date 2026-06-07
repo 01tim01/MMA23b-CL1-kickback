@@ -27,7 +27,15 @@
         <a href="shop.html">Sortiment</a>
         <a href="promotion.html">Promotion</a>
       </nav>
-      <a href="promotion.html" class="btn btn-accent header-cta btn-arrow">Jetzt Mitmachen</a>
+      <a href="promotion.html" class="btn btn-accent header-cta btn-arrow">Jetzt Spielen</a>
+      <!-- Warenkorb-Icon (auf allen Seiten) -->
+      <button class="cart-toggle" aria-label="Warenkorb öffnen" data-cart-open>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/>
+          <path d="M2 3h3l2.4 12.2a1 1 0 0 0 1 .8h8.2a1 1 0 0 0 1-.8L21 7H6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="cart-count" data-cart-count>0</span>
+      </button>
       <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
         <span></span>
       </button>
@@ -46,11 +54,11 @@
     <div class="marquee-track">
       <span>Versandkostenfrei ab CHF 80 <span class="star">✱</span></span>
       <span>Retro-Klassiker neu auf Lager <span class="star">✱</span></span>
-      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
+      <span>Jersey Runner: 5% Rabattcode <span class="star">✱</span></span>
       <span>Made for Fans <span class="star">✱</span></span>
       <span>Versandkostenfrei ab CHF 80 <span class="star">✱</span></span>
       <span>Retro-Klassiker neu auf Lager <span class="star">✱</span></span>
-      <span>Trikot-Verlosung 24/25 <span class="star">✱</span></span>
+      <span>Jersey Runner: 5% Rabattcode <span class="star">✱</span></span>
       <span>Made for Fans <span class="star">✱</span></span>
     </div>
   </div>
@@ -72,7 +80,7 @@
       <div class="hero-meta">
         <div class="cta-row">
           <a href="shop.html" class="btn btn-arrow">Sortiment ansehen</a>
-          <a href="promotion.html" class="btn btn-ghost btn-arrow">Verlosung</a>
+          <a href="promotion.html#game" class="btn btn-ghost btn-arrow">Jersey Runner</a>
         </div>
         <p class="lead desc">
           Trikots erzählen Geschichten — von Final-Nächten, Pokal-Märchen und
@@ -254,16 +262,17 @@
       </div>
       <div class="manifesto reveal">
         <h2>
-          Gewinne <span style="color:var(--accent-deep)">dein</span><br>
-          Lieblings-Trikot.
+          Spiel dich <span style="color:var(--accent-deep)">zum</span><br>
+          Rabatt.
         </h2>
         <p class="lead">
-          Trag dich in die Verlosung ein, schiess ein paar Tore in unserem
-          Mini-Game und sichere dir die Chance auf dein Wunschtrikot.
+          Spring im Kickback Jersey Runner über die Verteidiger, sammle die
+          leuchtende Münze und schalte deinen 5%-Rabattcode frei — direkt im
+          Warenkorb einlösbar.
         </p>
         <div class="cta-row">
-          <a href="promotion.html" class="btn btn-accent btn-arrow">Mitmachen</a>
-          <a href="promotion.html#game" class="btn btn-ghost btn-arrow">Striker Run spielen</a>
+          <a href="promotion.html#game" class="btn btn-accent btn-arrow">Jersey Runner spielen</a>
+          <a href="promotion.html#faq" class="btn btn-ghost btn-arrow">So funktioniert's</a>
         </div>
       </div>
     </section>
@@ -275,7 +284,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <h2 class="h-xl">KICK<span class="accent">BACK</span><span class="accent">.</span></h2>
-          <p>Trikots, die Geschichten erzählen — kuratiert in Bern, ausgeliefert in alle Welt.</p>
+          <p>Trikots, die Geschichten erzählen — kuratiert in Luzern, ausgeliefert in alle Welt.</p>
         </div>
         <div class="footer-cols">
           <div class="footer-col">
@@ -290,53 +299,53 @@
           <div class="footer-col">
             <h4>Mitmachen</h4>
             <ul>
-              <li><a href="promotion.html">Verlosung</a></li>
-              <li><a href="promotion.html#game">Striker Run</a></li>
+              <li><a href="promotion.html#game">Jersey Runner</a></li>
+              <li><a href="promotion.html#crew">Crew beitreten</a></li>
               <li><a href="promotion.html#faq">FAQ</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>About</h4>
             <ul>
-              <li><a href="#impressum">Impressum</a></li>
-              <li><a href="#datenschutz">Datenschutz</a></li>
+              <li><a href="impressum.html">Impressum</a></li>
+              <li><a href="datenschutz.html">Datenschutz</a></li>
               <li><a href="mailto:hello@kickback.ch">hello@kickback.ch</a></li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Impressum / About (Pflicht-Inhalt laut Anforderungen) -->
-      <div class="footer-legal">
-        <div id="impressum">
-          <h4>Impressum</h4>
-          <p>
-            Kickback GmbH · Stadionweg 24 · 3011 Bern, Schweiz<br>
-            <a href="mailto:hello@kickback.ch">hello@kickback.ch</a> · +41 31 123 45 67<br>
-            Handelsregister CHE-123.456.789 · MwSt-Nr. CHE-123.456.789 MWST<br>
-            Geschäftsführung: M. Beispiel · Bildrechte: Demo-Material (Schulprojekt M291)
-          </p>
-        </div>
-        <div id="datenschutz">
-          <h4>Über uns &amp; Datenschutz</h4>
-          <p>
-            Kickback ist ein fiktiver Online-Shop für Fussballtrikots, entstanden im
-            Modul M291. Eingegebene Formulardaten (Verlosung) dienen ausschliesslich
-            der Demonstration der Datenbank-Anbindung und werden nicht
-            weitergegeben. Es werden keine Tracking-Cookies gesetzt.
-          </p>
-        </div>
-      </div>
-
       <div class="footer-base">
         <span>© <span data-year>2026</span> Kickback GmbH</span>
-        <span>Made in Bern, Switzerland</span>
+        <span>Made in Luzern, Switzerland</span>
         <span>v 2.0 · M291</span>
       </div>
     </div>
   </footer>
 </div>
 
+<!-- ===================  WARENKORB (Drawer)  =================== -->
+<div class="cart-backdrop" data-cart-backdrop></div>
+<aside class="cart-drawer" data-cart-drawer aria-label="Warenkorb" aria-hidden="true">
+  <div class="cart-head">
+    <h3>Warenkorb</h3>
+    <button class="cart-close" data-cart-close aria-label="Warenkorb schliessen">✕</button>
+  </div>
+  <div class="cart-items" data-cart-items></div>
+  <div class="cart-foot" data-cart-foot>
+    <div class="cart-code">
+      <input type="text" data-cart-code placeholder="Rabattcode (z. B. KICKBACK5)" aria-label="Rabattcode" />
+      <button class="btn btn-ghost" data-cart-apply type="button">Anwenden</button>
+    </div>
+    <div class="cart-line"><span>Zwischensumme</span><span data-cart-subtotal>–</span></div>
+    <div class="cart-line discount" data-cart-discount-line hidden><span>Rabatt (5%)</span><span data-cart-discount>–</span></div>
+    <div class="cart-line total"><span>Total</span><span data-cart-total>–</span></div>
+    <p class="cart-msg" data-cart-msg></p>
+    <button class="btn btn-accent btn-arrow" data-cart-checkout type="button">Zur Kasse</button>
+  </div>
+</aside>
+
 <script src="js/main.js" defer></script>
+<script src="js/cart.js" defer></script>
 </body>
 </html>
