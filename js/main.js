@@ -102,7 +102,14 @@
           io.unobserve(e.target);          // einmal reicht → nicht mehr beobachten
         }
       });
-    }, { threshold: 0.12 });               // auslösen, sobald 12% sichtbar sind
+      // WICHTIG (Mobile-Bug): NICHT auf eine Sichtbarkeits-Quote (z. B. 12%)
+      // prüfen. Sehr hohe Elemente – etwa das einspaltige Produkt-Grid auf dem
+      // Handy (mehrere tausend Pixel) – passen nie zu 12% in den Viewport und
+      // würden sonst dauerhaft unsichtbar (opacity:0) bleiben. threshold:0 löst
+      // aus, sobald das Element überhaupt in den Viewport ragt; rootMargin
+      // zieht die untere Kante etwas hoch, damit es kurz NACH dem Eintreten
+      // sanft einblendet.
+    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
     targets.forEach(t => io.observe(t));
   } else {
     // Fallback für sehr alte Browser: sofort alles anzeigen

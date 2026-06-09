@@ -998,6 +998,7 @@ h1, h2, h3, h4 {
   color: var(--bg); text-align: center;
   background: rgba(10,10,10,.78); backdrop-filter: blur(10px);
   transition: opacity .3s ease;
+  overflow-y: auto;                         /* kurze Spielfelder: notfalls scrollen */
 }
 .game-overlay.is-hidden { opacity: 0; pointer-events: none; }
 .game-overlay__panel {
@@ -1006,6 +1007,9 @@ h1, h2, h3, h4 {
   border: 1.5px solid rgba(244,241,235,.28); border-radius: var(--radius-lg);
   background: linear-gradient(135deg, rgba(198,255,61,.14), transparent 38%), rgba(10,10,10,.56);
   box-shadow: 0 30px 80px rgba(0,0,0,.34);
+  /* Auf niedrigen Spielfeldern (Handy) darf das Panel nie höher als das Feld
+     werden, sonst schneidet overflow:hidden des Spielfelds den Button ab. */
+  max-height: 100%; overflow-y: auto;
 }
 .game-overlay .eyebrow { color: var(--bg); }
 .game-overlay h2 { font-size: clamp(36px, 6vw, 64px); line-height: 1; }
@@ -1079,12 +1083,21 @@ h1, h2, h3, h4 {
   80% { transform: translate3d(3px,0,0); }
 }
 
-/* Spielfeld auf kleinen Screens etwas höher (4:3), Figur kleiner */
+/* Spielfeld auf kleinen Screens: 4:3 wäre für die Sprunghöhe zu flach (die
+   Figur sprang oben aus dem Feld) und das Start-Overlay passte nicht hinein.
+   Darum eine spielbare Mindesthöhe + kompaktere Overlay-Texte. */
 @media (max-width: 780px) {
-  .game-canvas-wrap { aspect-ratio: 4 / 3; }
+  .game-canvas-wrap { aspect-ratio: 4 / 3; min-height: 360px; }
   .runner { left: clamp(30px, 9vw, 56px); height: clamp(76px, 18vw, 96px); }
   .game-stats { width: 100%; }
   .game-stats .stat { flex: 1; min-width: 0; }
+
+  /* Overlays kompakter, damit Titel + Text + Button sicher aufs Feld passen */
+  .game-overlay { padding: .85rem; }
+  .game-overlay__panel { gap: .6rem; padding: 1.1rem 1rem; }
+  .game-overlay h2 { font-size: clamp(26px, 7vw, 40px); }
+  .game-overlay p  { font-size: 14px; }
+  .game-overlay .btn { padding: 12px 22px; }
 }
 
 /* ---------- 16. FAQ Accordion --------------------------------------------- */

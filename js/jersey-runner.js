@@ -179,9 +179,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (state.mode === "playing") {
+        // Auf dem Handy würde der Tap sonst die Seite scrollen statt zu springen.
+        event.preventDefault();
         jump();
       }
-    });
+    }, { passive: false });
   }
 
   /* ---------- Game state transitions ------------------------------------- */
