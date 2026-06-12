@@ -55,7 +55,7 @@
     const code  = (input?.value || '').trim().toUpperCase();
     if (code === VALID_CODE) {
       localStorage.setItem(DISC_KEY, VALID_CODE);
-      setMsg('Code aktiv – 5% Rabatt', 'ok');
+      setMsg('Code aktiv, 5% Rabatt', 'ok');
     } else {
       localStorage.removeItem(DISC_KEY);
       setMsg('Ungültiger Code', 'err');

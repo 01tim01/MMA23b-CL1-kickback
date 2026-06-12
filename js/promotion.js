@@ -67,7 +67,7 @@
     list.forEach(v => {
       const o = document.createElement('option');
       o.value = v.vereins_id;                        // gespeichert wird die ID (Fremdschlüssel)
-      o.textContent = `${v.name}${v.liga ? ' — ' + v.liga : ''}`;
+      o.textContent = `${v.name}${v.liga ? ' · ' + v.liga : ''}`;
       clubSel.appendChild(o);
     });
   };

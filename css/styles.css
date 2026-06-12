@@ -51,7 +51,11 @@ ul { list-style: none; }
 
 body {
   font-family: var(--font-body);
-  background: var(--bg);
+  /* feines Raster im Hintergrund (ruhig, kaum sichtbar) + Grundfarbe */
+  background:
+    repeating-linear-gradient(0deg, rgba(10,10,10,.022) 0 1px, transparent 1px 58px),
+    repeating-linear-gradient(90deg, rgba(10,10,10,.022) 0 1px, transparent 1px 58px),
+    var(--bg);
   color: var(--ink);
   line-height: 1.5;
   font-size: clamp(15px, 1vw + .3rem, 17px);
@@ -867,10 +871,9 @@ h1, h2, h3, h4 {
   background: linear-gradient(135deg, rgba(255,255,255,.42), transparent 34%), var(--bg-alt);
   box-shadow: 0 24px 70px rgba(10,10,10,.22);
 }
-.game-card::before {       /* dekoratives Raster + grüner Akzentbalken rechts */
+.game-card::before {       /* dezentes Raster (ohne grüne Fläche) */
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(90deg, transparent 0 78%, rgba(198,255,61,.18) 78% 100%),
     repeating-linear-gradient(90deg, rgba(10,10,10,.04) 0 1px, transparent 1px 72px);
 }
 .game-card > * { position: relative; z-index: 1; }
