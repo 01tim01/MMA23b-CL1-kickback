@@ -2719,7 +2719,7 @@ namespace Nyholm\Psr7 {
      * @author Tobias Nyholm <tobias.nyholm@gmail.com>
      * @author Martijn van der Ven <martijn@vanderven.se>
      *
-     * @final This class should never be extended. See https://github.com/Nyholm/psr7/blob/master/doc/final.md
+     * @final This clas should never be extended. See https://github.com/Nyholm/psr7/blob/master/doc/final.md
      */
     class UploadedFile implements UploadedFileInterface
     {
