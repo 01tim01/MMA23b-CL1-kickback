@@ -518,7 +518,7 @@ namespace Psr\Http\Message {
          * The status code is a 3-digit integer result code of the server's attempt
          * to understand and satisfy the request.
          *
-         * @return int Status code
+         * @return int Status code.
          */
         public function getStatusCode(): int;
 
