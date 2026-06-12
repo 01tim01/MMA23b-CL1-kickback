@@ -10,11 +10,16 @@ abgabe/
 ├── index.html          Page 1 — Home / Start
 ├── shop.html           Page 2 — Sortiment (DB-Anbindung)
 ├── promotion.html      Page 3 — Promotion (Form + Game + FAQ)
-├── css/styles.css      Globales Design-System
-├── js/
-│   ├── main.js         Header-Drawer · Hero-Slider · Reveal-Animationen
-│   ├── shop.js         Filter, Suche, Produkt-Grid (php-crud-api + Fallback)
-│   └── promotion.js    Verlosungs-Form, Striker-Run-Canvas-Game, FAQ-Accordion
+├── css/styles.css      Globales Design-System (inkl. dunkle Section-Varianten)
+├── js/                 logisch aufgeteilt: API · Products · Forms · Validation · UI
+│   ├── api.js          API-Schicht: einzige Stelle mit DB-/Endpunkt-Wissen
+│   ├── home.js         Products: Hero-Slider der Startseite aus der DB
+│   ├── shop.js         Products: Filter, Suche, Produkt-Grid (DB + Fallback)
+│   ├── promotion.js    Forms: Verlosungs-Formular (speichert in DB), FAQ
+│   ├── validation.js   Validation: JS-Formularvalidierung (novalidate)
+│   ├── main.js         UI: Header-Drawer · Reveal-Animationen · Footer-Jahr
+│   ├── cart.js         UI: Warenkorb (localStorage)
+│   └── jersey-runner.js  Promo-Game
 ├── img/                Logo + Vereins-Trikots
 ├── db/init.sql         Datenbank-Schema + Seeds (M290 + verlosung)
 ├── wireframes/
@@ -35,8 +40,21 @@ open http://localhost:8080      # Webseite
 open http://localhost:8081/records/produkt   # API-Check
 ```
 
-Wenn die API nicht läuft, fallen Shop und Form auf eingebettete Demo-Daten
-zurück — die Seiten bleiben jederzeit funktionsfähig.
+Die Datenbank ist die M290-Datenbank: `db/init.sql` enthält das komplette
+M290-Schema (verein, produkt, kunden, bestellung, spende …) plus die
+M291-Tabelle `verlosung` und wird beim ersten Start automatisch eingespielt.
+Daten ändern → `docker exec -it kickback-db mariadb -ukickback -pkickback kickback`
+(oder Port 3307 mit einem DB-Tool) — Änderungen sind sofort auf der Website
+sichtbar, da alles per fetch() aus der API kommt.
+
+Ohne Docker (z. B. zum schnellen Testen): `node ../test-server/mock-api.mjs`
+startet Web (8080) + eine php-crud-api-kompatible Mock-API (8081) mit den
+Daten aus `db/init.sql`.
+
+Wenn gar keine API läuft, fallen Shop, Slider und Formular-Dropdown auf
+eingebettete Demo-Daten zurück (mit sichtbarem Hinweis im Shop) — die Seiten
+bleiben jederzeit funktionsfähig. Das Formular meldet dann ehrlich einen
+Fehler statt eines vorgetäuschten Erfolgs.
 
 ## 5 Interaktive Elemente
 

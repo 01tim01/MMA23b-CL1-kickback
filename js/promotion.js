@@ -2,8 +2,9 @@
    KICKBACK – promotion.js
    ----------------------------------------------------------------------------
    Steuert auf der Promotion-Seite zwei Teile:
-     1) Crew-/Newsletter-Formular  → JS-Validierung + Speicherung in der DB
-                                      (php-crud-api) inkl. E-Mail-Dublettenprüfung
+     1) Crew-/Newsletter-Formular  → JS-Validierung (js/validation.js) +
+                                      Speicherung in der DB über js/api.js,
+                                      inkl. E-Mail-Dublettenprüfung
      2) FAQ-Accordion              → immer nur eine Frage offen
 
    Das eigentliche Game (Jersey Runner) liegt in js/jersey-runner.js.
@@ -15,15 +16,6 @@
   /* ========================================================================
      1) CREW-/NEWSLETTER-FORMULAR  (JS-Validierung + DB-Speicherung)
      ======================================================================== */
-
-  /* API-Adresse: lokal (Docker) Port 8081, online (Plesk) api.php im selben
-     Ordner — wird automatisch am hostname erkannt. */
-  const isLocal       = ['localhost', '127.0.0.1'].includes(location.hostname);
-  const API_BASE      = isLocal
-    ? `${location.protocol}//${location.hostname}:8081`
-    : 'api.php';
-  const VEREIN_URL    = `${API_BASE}/records/verein?size=200`;
-  const VERLOSUNG_URL = `${API_BASE}/records/verlosung`;   // Tabelle für die Promo-Teilnehmer
 
   const form     = document.getElementById('crew-form');
   const status   = document.getElementById('form-status');
@@ -56,11 +48,8 @@
   const loadVereine = async () => {
     let list = FALLBACK_VEREINE;
     try {
-      const res = await fetch(VEREIN_URL);
-      if (res.ok) {
-        const data = await res.json();
-        if (data.records?.length) list = data.records;
-      }
+      const records = await KickbackAPI.getVereine();
+      if (records.length) list = records;
     } catch { /* offline → Fallback */ }
 
     clubSel.innerHTML = '<option value="">Wählen...</option>';
@@ -73,44 +62,20 @@
   };
   loadVereine();
 
-  /* ---- Validierung ----------------------------------------------------- */
-  // E-Mail-Regex: etwas@etwas.tld (keine Leerzeichen, ein @, Punkt + TLD)
-  const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
-
-  const validate = () => {
-    let ok = true;
-    form.querySelectorAll('.field').forEach(f => {
-      const key = f.dataset.field;
-      const inp = f.querySelector('input, select');
-      const val = (inp.value || '').trim();
-      let valid = true;
-      if (key === 'name')       valid = val.length >= 2;   // Name: mind. 2 Zeichen
-      else if (key === 'email') valid = isEmail(val);      // E-Mail: Regex
-      else                      valid = val !== '';        // Rest: nicht leer
-      f.classList.toggle('invalid', !valid);
-      if (!valid) ok = false;
-    });
-    return ok;
-  };
+  /* ---- Validierung ------------------------------------------------------ *
+   * Die Regeln (Name ≥ 2 Zeichen, E-Mail-Regex, Dropdowns nicht leer) liegen
+   * zentral in js/validation.js. HTML5-Validierung ist aus (novalidate,
+   * kein required, kein type="email") – es zählt nur diese JS-Prüfung.      */
+  const validate = () => KickbackValidation.validateForm(form);
 
   // Live-Validierung: beim Verlassen prüfen, beim Tippen Fehler wieder lösen
-  form.querySelectorAll('input, select').forEach(el => {
-    el.addEventListener('blur', validate);
-    el.addEventListener('input', () => {
-      const f = el.closest('.field');
-      if (f?.classList.contains('invalid')) validate();
-    });
-  });
+  KickbackValidation.attachLiveValidation(form);
 
   /* ---- Zusatzaufgabe: E-Mail-Dublettenprüfung -------------------------- *
    * Vor dem Speichern fragen wir die DB, ob die E-Mail schon existiert.    */
   const emailExists = async (email) => {
     try {
-      const url = `${VERLOSUNG_URL}?filter=email,eq,${encodeURIComponent(email)}&size=1`;
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) return false;
-      const data = await res.json();
-      return (data.records?.length || 0) > 0;
+      return await KickbackAPI.verlosungEmailExists(email);
     } catch {
       return false;   // offline → Prüfung überspringen
     }
@@ -151,22 +116,15 @@
     submitBtn.disabled = true;
 
     try {
-      const res = await fetch(VERLOSUNG_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) {
-        const txt = await res.text();
-        throw new Error(txt || ('HTTP ' + res.status));
-      }
-      await res.json();
-      setStatus('Willkommen in der Crew! ✱', 'ok');
+      // php-crud-api antwortet bei POST mit der neuen ID → unsere "Los-Nummer".
+      const newId = await KickbackAPI.saveVerlosung(payload);
+      setStatus(`Willkommen in der Crew! Los-Nr. ${newId} ✱`, 'ok');
       form.reset();
     } catch (err) {
+      // Ehrliche Fehlermeldung statt vorgetäuschtem Erfolg: Die Eingaben
+      // bleiben im Formular stehen, damit man es einfach nochmal versuchen kann.
       console.warn('[Kickback] DB-Save fehlgeschlagen:', err.message);
-      setStatus('Eingetragen (offline) ✱', 'ok');   // Fallback ohne API
-      form.reset();
+      setStatus('Speichern fehlgeschlagen – Datenbank nicht erreichbar', 'err');
     } finally {
       submitBtn.disabled = false;
     }

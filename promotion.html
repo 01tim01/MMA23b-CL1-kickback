@@ -154,16 +154,19 @@
           uns nur, wenn es etwas Gutes gibt.
         </p>
 
+        <!-- HTML5-Validierung bewusst deaktiviert: novalidate am <form>,
+             kein required, kein type="email" – die Prüfung übernimmt
+             komplett js/validation.js (gleiche Optik in jedem Browser). -->
         <form id="crew-form" class="form" novalidate>
           <div class="form-row two">
             <div class="field" data-field="name">
               <label for="f-name">Name *</label>
-              <input id="f-name" name="name" type="text" placeholder="Vor- & Nachname" />
+              <input id="f-name" name="name" type="text" placeholder="Vor- & Nachname" autocomplete="name" />
               <span class="error">Bitte Namen eingeben (mind. 2 Zeichen).</span>
             </div>
             <div class="field" data-field="email">
               <label for="f-email">E-Mail *</label>
-              <input id="f-email" name="email" type="text" placeholder="dein@email.com" />
+              <input id="f-email" name="email" type="text" inputmode="email" placeholder="dein@email.com" autocomplete="email" />
               <span class="error">Bitte gültige E-Mail eingeben.</span>
             </div>
           </div>
@@ -285,9 +288,9 @@
       </div>
     </section>
 
-    <!-- =========================  DARK CTA  =========================== -->
+    <!-- =========================  DARK CTA (dunkelgrüne Variante) ===== -->
     <section class="container section">
-      <div class="section-dark">
+      <div class="section-dark section-dark--green">
         <div class="container">
           <div class="head-row">
             <span class="star" style="color:var(--accent)">✱</span>
@@ -375,6 +378,9 @@
   </div>
 </aside>
 
+<!-- Reihenfolge: api.js & validation.js zuerst (werden von promotion.js genutzt) -->
+<script src="js/api.js" defer></script>
+<script src="js/validation.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/promotion.js" defer></script>
 <script src="js/jersey-runner.js" defer></script>

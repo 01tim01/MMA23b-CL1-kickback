@@ -8,9 +8,11 @@
 
    Inhalt:
      1) Mobile Navigation (Burger-Menü)
-     2) Hero-Slider (nur Home)
-     3) Scroll-Reveal-Animationen
-     4) Jahreszahl im Footer automatisch setzen
+     2) Scroll-Reveal-Animationen
+     3) Jahreszahl im Footer automatisch setzen
+
+   (Der Hero-Slider der Startseite liegt in js/home.js – er wird dort aus
+   der Datenbank befüllt und erst danach initialisiert.)
    ============================================================================ */
 
 (() => {
@@ -48,47 +50,7 @@
     });
   }
 
-  /* -------- 2) Hero-Slider (nur Home) ------------------------------------ *
-   * Der Slider ist eine horizontal scrollbare Leiste (CSS: scroll-snap).
-   * JS ergänzt: Pfeil-Buttons, eine Fortschrittsanzeige und Auto-Weiterlauf. */
-  const slider = document.querySelector('[data-slider]');
-  if (slider) {
-    const track    = slider.querySelector('.slider-track');
-    const slides   = [...track.children];   // NodeList → echtes Array
-    const prevBtn  = slider.querySelector('[data-slider-prev]');
-    const nextBtn  = slider.querySelector('[data-slider-next]');
-    const progress = slider.querySelector('.slider-progress');
-
-    // update(): rechnet aus, wie weit (in %) bereits gescrollt wurde, und
-    // gibt den Wert per CSS-Variable --p an die Fortschrittsanzeige weiter.
-    //   scrollWidth - clientWidth = maximal scrollbare Strecke
-    //   scrollLeft / max          = aktueller Anteil (0…1)
-    const update = () => {
-      const max = track.scrollWidth - track.clientWidth;
-      const pct = max > 0 ? (track.scrollLeft / max) * 100 : 100;
-      if (progress) progress.style.setProperty('--p', pct + '%');
-    };
-
-    // stepBy(): um genau eine Slide-Breite (+14px Lücke) nach links/rechts
-    // scrollen. `dir` ist -1 (zurück) oder +1 (vor).
-    const stepBy = (dir) => {
-      const slideW = slides[0].getBoundingClientRect().width + 14;
-      track.scrollBy({ left: dir * slideW, behavior: 'smooth' });
-    };
-
-    prevBtn?.addEventListener('click', () => stepBy(-1));
-    nextBtn?.addEventListener('click', () => stepBy(+1));
-    track.addEventListener('scroll', update, { passive: true }); // auch bei Maus/Wisch aktualisieren
-    window.addEventListener('resize', update);
-    update();
-
-    // Automatisch alle 6s weiter; bei Maus-Hover pausieren (nicht stören).
-    let timer = setInterval(() => stepBy(+1), 6000);
-    slider.addEventListener('mouseenter', () => clearInterval(timer));
-    slider.addEventListener('mouseleave', () => timer = setInterval(() => stepBy(+1), 6000));
-  }
-
-  /* -------- 3) Scroll-Reveal-Animation ----------------------------------- *
+  /* -------- 2) Scroll-Reveal-Animation ----------------------------------- *
    * Elemente mit der Klasse .reveal starten unsichtbar (CSS) und sollen
    * sanft einblenden, sobald sie in den sichtbaren Bereich scrollen.
    * Der IntersectionObserver meldet genau das – effizienter als ein
@@ -116,7 +78,7 @@
     targets.forEach(t => t.classList.add('is-in'));
   }
 
-  /* -------- 4) Jahreszahl im Footer -------------------------------------- *
+  /* -------- 3) Jahreszahl im Footer -------------------------------------- *
    * Setzt automatisch das aktuelle Jahr (z. B. © 2026), damit es nie veraltet. */
   const y = document.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();

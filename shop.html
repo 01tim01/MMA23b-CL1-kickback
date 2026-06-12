@@ -65,7 +65,8 @@
     <section class="container page-hero">
       <div class="head-row">
         <span class="star">✱</span>
-        <span class="eyebrow">Sortiment · 26 Produkte</span>
+        <!-- Anzahl wird per JS aus der DB gesetzt – nicht fix ins HTML geschrieben -->
+        <span class="eyebrow" id="shop-eyebrow">Sortiment</span>
         <span class="meta">No. 02 / 03</span>
       </div>
       <h1>
@@ -95,6 +96,8 @@
       <div class="shop-meta">
         <span id="count" class="count">…</span>
         <span class="muted" id="active-filters"></span>
+        <!-- erscheint nur, wenn die Datenbank nicht antwortet (Demo-Fallback) -->
+        <span id="api-notice" class="api-notice" role="status" hidden></span>
       </div>
 
       <div id="product-grid" class="product-grid" aria-live="polite">
@@ -195,6 +198,8 @@
   </div>
 </aside>
 
+<!-- Reihenfolge: api.js zuerst (wird von shop.js genutzt) -->
+<script src="js/api.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/shop.js" defer></script>
 <script src="js/cart.js" defer></script>

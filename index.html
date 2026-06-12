@@ -90,50 +90,12 @@
       </div>
 
       <!-- ===================  HERO SLIDER  ====================== -->
+      <!-- Die Slides stehen NICHT mehr fest im HTML: js/home.js lädt die
+           aktuellen Trikots aus der M290-Datenbank (php-crud-api) und baut
+           daraus die Slides. Ohne API rendert es eingebettete Demo-Slides. -->
       <div class="slider reveal" data-slider aria-roledescription="carousel">
         <div class="slider-track">
-          <article class="slide" aria-roledescription="slide" aria-label="FC Barcelona 24/25">
-            <img src="img/barca.jpeg" alt="FC Barcelona Trikot" loading="lazy" />
-            <div class="slide-caption">
-              <h3>FC Barcelona<br>24/25</h3>
-              <span class="slide-tag">Top-Liga</span>
-            </div>
-          </article>
-          <article class="slide" aria-roledescription="slide" aria-label="Liverpool 24/25">
-            <img src="img/liverpool.jpeg" alt="FC Liverpool Trikot" loading="lazy" />
-            <div class="slide-caption">
-              <h3>Liverpool<br>FC</h3>
-              <span class="slide-tag">Premier</span>
-            </div>
-          </article>
-          <article class="slide" aria-roledescription="slide" aria-label="Bayern München 24/25">
-            <img src="img/bayern.jpeg" alt="Bayern München Trikot" loading="lazy" />
-            <div class="slide-caption">
-              <h3>Bayern<br>München</h3>
-              <span class="slide-tag">Bundesliga</span>
-            </div>
-          </article>
-          <article class="slide" aria-roledescription="slide" aria-label="Real Madrid 24/25">
-            <img src="img/real.jpeg" alt="Real Madrid Trikot" loading="lazy" />
-            <div class="slide-caption">
-              <h3>Real<br>Madrid</h3>
-              <span class="slide-tag">La Liga</span>
-            </div>
-          </article>
-          <article class="slide" aria-roledescription="slide" aria-label="PSG 24/25">
-            <img src="img/psg.jpeg" alt="Paris Saint-Germain Trikot" loading="lazy" />
-            <div class="slide-caption">
-              <h3>Paris<br>SG</h3>
-              <span class="slide-tag">Ligue 1</span>
-            </div>
-          </article>
-          <article class="slide" aria-roledescription="slide" aria-label="Dortmund 24/25">
-            <img src="img/dortmund.jpeg" alt="Borussia Dortmund Trikot" loading="lazy" />
-            <div class="slide-caption">
-              <h3>Borussia<br>Dortmund</h3>
-              <span class="slide-tag">Bundesliga</span>
-            </div>
-          </article>
+          <!-- gerendert per JS (js/home.js) -->
         </div>
         <div class="slider-controls">
           <button data-slider-prev aria-label="Vorheriges Trikot">←</button>
@@ -207,9 +169,9 @@
       </div>
     </section>
 
-    <!-- =========================  KICKBACK-PRINZIP (dark) =================== -->
+    <!-- ==================  KICKBACK-PRINZIP (dunkelgrüne Variante) ========== -->
     <section class="container">
-      <div class="section-dark">
+      <div class="section-dark section-dark--green">
         <div class="container">
           <div class="head-row">
             <span class="star" style="color:var(--accent)">✱</span>
@@ -234,26 +196,27 @@
       </div>
     </section>
 
-    <!-- =========================  PROMOTION TEASER  =========================== -->
+    <!-- ============  PROMOTION TEASER (near-black mit Pitch-Linien) ========== -->
     <section class="container section">
-      <div class="head-row">
-        <span class="star">✱</span>
-        <span class="eyebrow">Aktuelle Promotion</span>
-        <span class="meta">No. 03</span>
-      </div>
-      <div class="manifesto reveal">
-        <h2>
-          Spiel dich <span style="color:var(--accent-deep)">zum</span><br>
-          Rabatt.
-        </h2>
-        <p class="lead">
-          Lust auf ein Extra? Spiel den Jersey Runner, sammle die Münze und
-          hol dir einen 5%-Rabattcode für deinen Einkauf. Einfach so, zum
-          Spass, ganz ohne Anmeldung.
-        </p>
-        <div class="cta-row">
-          <a href="promotion.html#game" class="btn btn-accent btn-arrow">Jersey Runner spielen</a>
-          <a href="promotion.html#faq" class="btn btn-ghost btn-arrow">So funktioniert's</a>
+      <div class="section-dark section-dark--pitch reveal">
+        <div class="container">
+          <div class="head-row">
+            <span class="star" style="color:var(--accent)">✱</span>
+            <span class="eyebrow" style="color:var(--accent)">Aktuelle Promotion</span>
+            <span class="meta" style="color:var(--accent)">No. 03</span>
+          </div>
+          <h2 class="h-xl" style="color:var(--bg);max-width:14ch">
+            SPIEL DICH<br><span style="color:var(--accent)">ZUM RABATT.</span>
+          </h2>
+          <p class="lead" style="margin-top:1.25rem;max-width:50ch">
+            Lust auf ein Extra? Spiel den Jersey Runner, sammle die Münze und
+            hol dir einen 5%-Rabattcode für deinen Einkauf. Einfach so, zum
+            Spass, ganz ohne Anmeldung.
+          </p>
+          <div class="cta-row" style="margin-top:2rem">
+            <a href="promotion.html#game" class="btn btn-accent btn-arrow">Jersey Runner spielen</a>
+            <a href="promotion.html#faq" class="btn btn-arrow">So funktioniert's</a>
+          </div>
         </div>
       </div>
     </section>
@@ -328,7 +291,10 @@
   </div>
 </aside>
 
+<!-- Reihenfolge: api.js zuerst (wird von home.js für den Slider genutzt) -->
+<script src="js/api.js" defer></script>
 <script src="js/main.js" defer></script>
+<script src="js/home.js" defer></script>
 <script src="js/cart.js" defer></script>
 </body>
 </html>

@@ -599,18 +599,45 @@ h1, h2, h3, h4 {
 .manifesto p { margin-top: 1.25rem; max-width: 50ch; color: var(--ink-soft); }
 .manifesto .cta-row { margin-top: 1.5rem; }
 
-/* dark variant */
+/* ---- Dunkle Section-Varianten --------------------------------------------
+   Damit nicht jede dunkle Fläche gleich aussieht, gibt es drei Stimmungen:
+     .section-dark          near-black mit feinem Akzent-Glow (Standard)
+     .section-dark--green   dunkelgrün getönt ("Flutlicht auf Rasen")
+     .section-dark--pitch   near-black mit dezenten vertikalen Pitch-Linien
+   Alle bleiben im Editorial-Look: gleiche Radien, gleiche Typo, nur die
+   Hintergrundstimmung wechselt. */
 .section-dark {
-  background: var(--ink);
+  background:
+    radial-gradient(820px 420px at 88% -12%, rgba(198,255,61,.09), transparent 60%),
+    linear-gradient(155deg, #161616 0%, var(--ink) 55%, #060606 100%);
   color: var(--bg);
   border-radius: clamp(20px, 3vw, 36px);
   margin-block: clamp(2rem, 5vw, 4rem);
   padding-block: clamp(3rem, 7vw, 5.5rem);
+  position: relative;
+  overflow: hidden;
+}
+/* dunkelgrüne Variante: tiefer Rasen-Ton + Flutlicht-Schein unten links */
+.section-dark--green {
+  background:
+    radial-gradient(780px 460px at 10% 112%, rgba(198,255,61,.16), transparent 55%),
+    radial-gradient(620px 320px at 92% -8%, rgba(138,255,0,.07), transparent 60%),
+    linear-gradient(150deg, #0E2415 0%, #081A0D 55%, #05100A 100%);
+}
+/* near-black mit feinen vertikalen Linien (erinnert an Spielfeld-Markierungen) */
+.section-dark--pitch {
+  background:
+    repeating-linear-gradient(90deg, rgba(244,241,235,.035) 0 1px, transparent 1px 96px),
+    radial-gradient(700px 380px at 50% 118%, rgba(198,255,61,.10), transparent 60%),
+    linear-gradient(165deg, #121212 0%, #070707 100%);
 }
 .section-dark .lead,
 .section-dark .muted { color: rgba(244,241,235,.7); }
 .section-dark .btn { background: var(--bg); color: var(--ink); border-color: var(--bg); }
 .section-dark .btn:hover { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+/* Akzent-Button bleibt auch auf dunklem Grund grün (CTA-Hierarchie) */
+.section-dark .btn-accent { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+.section-dark .btn-accent:hover { background: var(--bg); color: var(--ink); border-color: var(--bg); }
 
 /* tier list (basic / premium / elite) */
 .tier-list {
@@ -681,6 +708,12 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 .shop-meta .count { background: var(--ink); color: var(--bg); padding: 6px 14px; border-radius: 999px; }
+/* Hinweis-Badge, wenn die DB nicht erreichbar ist (Demo-Fallback aktiv) */
+.api-notice {
+  color: var(--danger);
+  font-size: 11px;
+  letter-spacing: .14em;
+}
 
 .product-grid {
   display: grid;
@@ -773,7 +806,11 @@ h1, h2, h3, h4 {
 }
 
 .promo-card {
-  background: var(--ink);
+  /* near-black mit leichtem Grünstich + Akzent-Glow oben rechts –
+     passt zur section-dark--green Stimmung, bleibt aber eigenständig */
+  background:
+    radial-gradient(560px 320px at 92% -10%, rgba(198,255,61,.12), transparent 58%),
+    linear-gradient(160deg, #121712 0%, var(--ink) 60%, #050705 100%);
   color: var(--bg);
   border-radius: var(--radius-lg);
   padding: clamp(1.5rem, 3vw, 2.5rem);

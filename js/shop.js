@@ -5,31 +5,18 @@
    fürs Fachgespräch, darum ausführlich kommentiert.
 
    Was die Datei macht:
-     - Produkte aus der Datenbank holen (php-crud-api, Tabelle 'produkt' mit
-       JOIN auf 'verein', damit Vereinsname & Liga gleich mitkommen)
+     - Produkte über die zentrale API-Schicht laden (js/api.js → KickbackAPI;
+       Tabelle 'produkt' mit JOIN auf 'verein', damit Vereinsname & Liga
+       gleich mitkommen)
      - Live-Suche über ein Textfeld
      - Filter nach Liga / Saison / Kategorie (Dropdowns)
      - Deep-Linking: Filter lassen sich per URL vorbelegen (z. B. aus der Home)
-     - Fallback auf eingebettete Demo-Daten, falls die API nicht läuft
+     - Fallback auf eingebettete Demo-Daten + sichtbarer Hinweis, falls die
+       API nicht läuft
    ============================================================================ */
 
 (() => {
   'use strict';
-
-  /* -------- Konfiguration ------------------------------------------------ *
-   * Die API-Adresse hängt davon ab, WO die Seite läuft:
-   *   - lokal (Docker):   php-crud-api auf Port 8081
-   *   - online (Plesk):   die Datei api.php im selben Webspace
-   * Das erkennen wir automatisch am hostname.
-   * `?join=verein` hängt zu jedem Produkt das verknüpfte Vereins-Objekt an;
-   * `&size=200` hebt das Standard-Limit an, damit wirklich alle Produkte kommen. */
-  const isLocal  = ['localhost', '127.0.0.1'].includes(location.hostname);
-  // online: 'api.php' liegt im selben Ordner wie diese Seite (relativ → auch
-  // in einem Unterordner korrekt). lokal: fester Docker-Port 8081.
-  const API_BASE = isLocal
-    ? `${location.protocol}//${location.hostname}:8081`
-    : 'api.php';
-  const API_URL  = `${API_BASE}/records/produkt?join=verein&size=200`;
 
   /* -------- DOM-Referenzen ---------------------------------------------- */
   const grid          = document.getElementById('product-grid');
@@ -40,6 +27,8 @@
   const resetBtn      = document.getElementById('reset');
   const countEl       = document.getElementById('count');
   const activeEl      = document.getElementById('active-filters');
+  const eyebrowEl     = document.getElementById('shop-eyebrow');
+  const noticeEl      = document.getElementById('api-notice');
 
   /* -------- State -------------------------------------------------------- *
    * `all`  = alle geladenen Produkte (Originaldaten, werden nie verändert)
@@ -56,11 +45,8 @@
     return n.toLocaleString('de-CH', { style: 'currency', currency: 'CHF' });
   };
 
-  // php-crud-api liefert bei `join=verein` den Verein als verschachteltes
-  // Objekt unter `vereins_id`. Diese Helper holt es sicher heraus
-  // (oder null, falls kein Verein verknüpft ist).
-  const getVerein = (p) =>
-    (p && typeof p.vereins_id === 'object' && p.vereins_id) ? p.vereins_id : null;
+  // Verein aus dem Produkt-Datensatz holen (Format-Wissen liegt in api.js).
+  const getVerein = KickbackAPI.vereinOf;
 
   // Aus einer Werteliste eine alphabetisch sortierte Liste OHNE Duplikate
   // und ohne Leerwerte bauen – für die Dropdown-Optionen.
@@ -146,16 +132,14 @@
     grid.innerHTML = view.map(p => {
       const v = getVerein(p);
       const isRetro = (p.kategorie ?? '').includes('Retro');
-      // Bild aus der DB, sonst Platzhalter
-      const img = (p.bild_url && p.bild_url.trim() !== '')
-        ? p.bild_url
-        : 'https://placehold.co/600x600/ECE7DD/0A0A0A?text=KICKBACK';
+      // Bild aus der DB (normalisiert), sonst Platzhalter
+      const img = KickbackAPI.bildUrl(p);
       return `
         <article class="product reveal">
           <div class="img-wrap">
             <span class="badge ${isRetro ? 'retro' : ''}">${isRetro ? 'Retro' : 'Saison ' + (p.saison ?? '')}</span>
             <img src="${img}" alt="${(v?.name ?? p.titel ?? 'Trikot')}" loading="lazy"
-                 onerror="this.src='https://placehold.co/600x600/ECE7DD/0A0A0A?text=KICKBACK'">
+                 onerror="this.src='${KickbackAPI.PLACEHOLDER}'">
           </div>
           <div class="product-body">
             <div class="meta">
@@ -233,16 +217,22 @@
    * tatsächlich vorhandenen Werten befüllen, URL-Filter anwenden, anzeigen.  */
   const init = async () => {
     try {
-      const res  = await fetch(API_URL, { cache: 'no-store' });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const data = await res.json();
-      all = data.records ?? [];          // php-crud-api verpackt Daten in `records`
-      if (!all.length) throw new Error('empty');
+      all = await KickbackAPI.getProdukte();
+      if (!all.length) throw new Error('keine Datensätze');
     } catch (err) {
-      // Kein Absturz, sondern sauberer Rückfall auf Demo-Daten
+      // Kein Absturz, sondern sauberer Rückfall auf Demo-Daten – plus ein
+      // sichtbarer Hinweis, damit klar ist, dass die DB gerade nicht antwortet.
       console.warn('[Kickback] API nicht erreichbar – nutze Demo-Daten:', err.message);
       all = DEMO;
+      if (noticeEl) {
+        noticeEl.hidden = false;
+        noticeEl.textContent = '⚠ Datenbank nicht erreichbar – es werden Demo-Daten angezeigt.';
+      }
     }
+
+    // Im Seitentitel die echte Anzahl Trikot-Modelle anzeigen (statt einer
+    // fix ins HTML geschriebenen Zahl): pro Verein+Saison+Typ ein Modell.
+    if (eyebrowEl) eyebrowEl.textContent = `Sortiment · ${stripDup(all).length} Trikots`;
 
     // Dropdowns dynamisch aus den geladenen Daten befüllen
     fillSelect(filterLiga,   uniqueSorted(all.map(p => getVerein(p)?.liga)), 'Alle Ligen');
